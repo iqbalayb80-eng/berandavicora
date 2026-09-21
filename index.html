@@ -1,28 +1,769 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>VICORA — Banana Vibes, Cleaner Days</title>
-
-<meta
-    name="description"
-    content="VICORA Banana 2-in-1 Shampoo & Body Wash"
->
-
+<meta name="description" content="VICORA Banana 2-in-1 Shampoo & Body Wash">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
->
-
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
+/* ===== VICORA CURSOR SCENE ===== */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+
+    overflow: hidden;
+
+    background: #eee9e1;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+/* =========================================================
+   MAIN SCENE
+========================================================= */
+
+.vicora-scene {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    min-height: 650px;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    background: #eee9e1;
+
+    --mouse-x: 0;
+    --mouse-y: 0;
+}
+
+
+/* =========================================================
+   =========================================================
+   URUTAN LAYER
+   =========================================================
+
+   1. SHOWER
+   2. PRODUCT 10GR
+   3. PRODUCT 750ML
+   4. PRODUCT 500ML
+   5. BATHTUB
+   6. CHARACTER
+   7. DOOR
+   8. TOWEL
+   9. BACKGROUND
+
+   ========================================================= */
+
+
+/* =========================================================
+   9. BACKGROUND
+========================================================= */
+
+.layer-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 1;
+
+    /*
+       Sedikit zoom agar tidak ada
+       garis kosong di tepi layar.
+    */
+
+    transform:
+        scale(1.015);
+
+    transition:
+        transform .3s ease;
+}
+
+
+/* =========================================================
+   8. TOWEL
+========================================================= */
+
+.layer-towel {
+
+    position: absolute;
+
+    /*
+       POSISI HANDUK
+    */
+
+    left: 62%;
+
+    top: 10%;
+
+
+    /*
+       UKURAN HANDUK
+    */
+
+    width:
+        min(17vw, 210px);
+
+    height: auto;
+
+
+    z-index: 20;
+
+    cursor: pointer;
+
+    transform:
+        translateX(-50%);
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+
+.layer-towel:hover {
+
+    transform:
+        translateX(-50%)
+        scale(1.04);
+
+    filter:
+        drop-shadow(
+            0 10px 18px
+            rgba(0,0,0,.18)
+        );
+}
+
+
+/* =========================================================
+   7. DOOR
+========================================================= */
+
+.layer-door {
+
+    position: absolute;
+
+    /*
+       POSISI PINTU
+    */
+
+    right: 11.5%;
+
+    top: 7.5%;
+
+
+    /*
+       UKURAN PINTU
+    */
+
+    width:
+        min(17vw, 255px);
+
+    height: auto;
+
+
+    z-index: 30;
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+
+.layer-door:hover {
+
+    transform:
+        scale(1.02);
+
+    filter:
+        brightness(1.04)
+        drop-shadow(
+            0 8px 18px
+            rgba(0,0,0,.16)
+        );
+}
+
+
+/* =========================================================
+   6. CHARACTER
+========================================================= */
+
+.character {
+
+    position: absolute;
+
+    /*
+       Z-INDEX
+       Karakter berada di belakang bathtub
+       tetapi di depan door & towel.
+    */
+
+    z-index: 40;
+
+
+    /*
+       UKURAN KARAKTER
+
+       REFERENSI:
+       sekitar 200px pada layar desktop.
+    */
+
+    width:
+        min(21vw, 310px);
+
+    height: auto;
+
+
+    /*
+       POSISI AWAL HORIZONTAL
+
+       Setelah mouse bergerak,
+       LEFT akan dikontrol JavaScript.
+    */
+
+    left: 57%;
+
+
+    /*
+       POSISI VERTIKAL
+
+       INI BEBAS KAMU UBAH.
+
+       15% = lebih atas
+       20% = seperti gambar referensi
+       25% = lebih bawah
+       30% = lebih bawah lagi
+    */
+
+    top: 25%;
+
+
+    pointer-events: none;
+
+    user-select: none;
+
+    transform-origin:
+        center bottom;
+
+    transform:
+        translateX(-50%) scaleX(1);
+
+    will-change:
+        left,
+        transform;
+
+    /*
+       POSISI KARAKTER AKAN DIKONTROL JAVASCRIPT
+       BERDASARKAN TITIK TENGAH KURSOR.
+    */
+
+    filter:
+        drop-shadow(
+            0 10px 8px
+            rgba(0,0,0,.16)
+        );
+}
+
+
+
+
+/* =========================================================
+   5. BATHTUB
+========================================================= */
+
+.layer-bathtub {
+
+    position: absolute;
+
+    /*
+       BATHTUB MEMENUHI BAGIAN BAWAH
+    */
+
+    left: -2%;
+
+    bottom: -3%;
+
+
+    /*
+       UKURAN BATHTUB
+    */
+
+    width: 104%;
+
+    height: auto;
+
+
+    z-index: 50;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 -8px 18px
+            rgba(0,0,0,.08)
+        );
+}
+
+
+/* =========================================================
+   4. PRODUCT 500 ML
+========================================================= */
+
+.product-500 {
+
+    position: absolute;
+
+    /*
+       POSISI SESUAI REFERENSI
+    */
+
+    left: 30%;
+
+    top: 50%;
+
+
+    /*
+       UKURAN
+    */
+
+    width:
+        min(5vw, 78px);
+
+    height: auto;
+
+
+    z-index: 60;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+
+/* =========================================================
+   3. PRODUCT 750 ML
+========================================================= */
+
+.product-750 {
+
+    position: absolute;
+
+    /*
+       POSISI SESUAI REFERENSI
+    */
+
+    left: 24%;
+
+    top: 37.5%;
+
+
+    /*
+       UKURAN
+    */
+
+    width:
+        min(5.4vw, 82px);
+
+    height: auto;
+
+
+    z-index: 70;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+
+/* =========================================================
+   2. PRODUCT 10 GR
+========================================================= */
+
+.product-10 {
+
+    position: absolute;
+
+    /*
+       POSISI SESUAI REFERENSI
+    */
+
+    left: 35%;
+
+    top: 59%;
+
+
+    /*
+       UKURAN
+    */
+
+    width:
+        min(4vw, 60px);
+
+    height: auto;
+
+
+    z-index: 80;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+
+/* =========================================================
+   PRODUCT HOVER
+========================================================= */
+
+.product-500:hover,
+.product-750:hover,
+.product-10:hover {
+
+    transform:
+        translateY(-7px)
+        scale(1.07);
+
+    filter:
+        drop-shadow(
+            0 10px 18px
+            rgba(213,158,37,.38)
+        )
+        brightness(1.05);
+}
+
+
+/* =========================================================
+   PRODUCT ACTIVE
+========================================================= */
+
+.product-500.active,
+.product-750.active,
+.product-10.active {
+
+    filter:
+        drop-shadow(
+            0 0 18px
+            rgba(239,176,43,.65)
+        )
+        brightness(1.06);
+
+    animation:
+        productActive
+        .7s ease-in-out
+        infinite alternate;
+}
+
+
+@keyframes productActive {
+
+    from {
+
+        transform:
+            translateY(-3px)
+            scale(1.03);
+    }
+
+    to {
+
+        transform:
+            translateY(-9px)
+            scale(1.08);
+    }
+}
+
+
+/* =========================================================
+   1. SHOWER
+========================================================= */
+
+.layer-shower {
+
+    position: absolute;
+
+    /*
+       POSISI SHOWER
+    */
+
+    left: -1.5%;
+
+    top: 8%;
+
+
+    /*
+       UKURAN SHOWER
+
+       Dibuat lebih besar seperti referensi.
+    */
+
+    width:
+        min(13vw, 195px);
+
+    height: auto;
+
+
+    z-index: 90;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 8px 10px
+            rgba(0,0,0,.10)
+        );
+
+    transform:
+        translate3d(
+            calc(var(--mouse-x) * 5px),
+            calc(var(--mouse-y) * 3px),
+            0
+        );
+
+    transition:
+        transform .25s ease-out;
+}
+
+
+/* =========================================================
+   PRODUCT LABEL
+========================================================= */
+
+.product-label {
+
+    position: absolute;
+
+    z-index: 100;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    padding:
+        6px 11px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(38,61,36,.92);
+
+    color: #fff;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: .06em;
+
+    transform:
+        translate(-50%, 8px);
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+}
+
+
+.product-label.show {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, 0);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .vicora-scene {
+
+        min-height: 600px;
+    }
+
+
+    /* -----------------------------------------
+       SHOWER
+    ----------------------------------------- */
+
+    .layer-shower {
+
+        left: -4%;
+
+        top: 8%;
+
+        width: 25vw;
+    }
+
+
+    /* -----------------------------------------
+       TOWEL
+    ----------------------------------------- */
+
+    .layer-towel {
+
+        left: 1%;
+
+        top: 90%;
+
+        width: 25vw;
+    }
+
+
+    /* -----------------------------------------
+       DOOR
+    ----------------------------------------- */
+
+    .layer-door {
+
+        right: 3%;
+
+        top: 8%;
+
+        width: 24vw;
+    }
+
+
+    /* -----------------------------------------
+       CHARACTER
+    ----------------------------------------- */
+
+    .character {
+
+        width: 21vw;
+
+        top: 22%;
+    }
+
+
+    /* -----------------------------------------
+       PRODUCTS
+    ----------------------------------------- */
+
+    .product-750 {
+
+        left: 22%;
+
+        top: 39%;
+
+        width: 12vw;
+    }
+
+
+    .product-500 {
+
+        left: 32%;
+
+        top: 40%;
+
+        width: 11vw;
+    }
+
+
+    .product-10 {
+
+        left: 42%;
+
+        top: 41%;
+
+        width: 9vw;
+    }
+
+
+    /* -----------------------------------------
+       BATHTUB
+    ----------------------------------------- */
+
+    .layer-bathtub {
+
+        left: -5%;
+
+        bottom: -2%;
+
+        width: 110%;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            .001ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            .001ms !important;
+    }
+
+}
+
+
+
+/* Allow the full website to scroll */
+body { overflow-x: hidden; overflow-y: auto; }
+</style>
+
+<style>
+/* ===== VICORA MAIN WEBSITE ===== */
+
 
 /* =========================================================
    VICORA BERANDA
@@ -3262,12 +4003,213 @@ footer{
 
 }
 
+
 </style>
-
 </head>
-
-
 <body>
+
+<!-- ===== TOP SCENE: CURSOR INTERACTION ===== -->
+
+
+
+<section
+    class="vicora-scene"
+    id="vicoraScene"
+>
+
+
+    <!-- =================================================
+         BACKGROUND
+    ================================================== -->
+
+    <img
+        src="assets/background.png"
+        class="layer-background"
+        alt="VICORA Bathroom"
+        draggable="false"
+    >
+
+
+    <!-- =================================================
+         TOWEL
+         CLICK → TENTANG KAMI
+    ================================================== -->
+
+    <a
+        href="https://www.vicora.biz.id/tentang-kami"
+        aria-label="Tentang VICORA"
+    >
+
+        <img
+            src="assets/towel.png"
+            class="layer-towel"
+            alt="Handuk VICORA"
+            draggable="false"
+        >
+
+    </a>
+
+
+    <!-- =================================================
+         DOOR
+         CLICK → ALAMAT
+    ================================================== -->
+
+    <a
+        href="https://www.vicora.biz.id/alamat"
+        aria-label="Alamat VICORA"
+    >
+
+        <img
+            src="assets/door.png"
+            class="layer-door"
+            alt="Pintu"
+            draggable="false"
+        >
+
+    </a>
+
+
+    <!-- =================================================
+         CHARACTER
+    ================================================== -->
+
+    <img
+        src="assets/character.png"
+        class="character"
+        id="character"
+        alt="VICORA Character"
+        draggable="false"
+    >
+
+
+    <!-- =================================================
+         BATHTUB
+    ================================================== -->
+
+    <img
+        src="assets/bathtub.png"
+        class="layer-bathtub"
+        alt="Bathtub"
+        draggable="false"
+    >
+
+
+    <!-- =================================================
+         PRODUCT 500 ML
+         CLICK → VARIASI
+    ================================================== -->
+
+    <a
+        href="https://www.vicora.biz.id/variasi"
+        class="product-link"
+        data-product="500ml"
+        aria-label="VICORA 500 ML"
+    >
+
+        <img
+            src="assets/product-500ml.png"
+            class="product-500"
+            alt="VICORA 500 ML"
+            draggable="false"
+        >
+
+    </a>
+
+
+    <!-- =================================================
+         PRODUCT 750 ML
+         CLICK → VARIASI
+    ================================================== -->
+
+    <a
+        href="https://www.vicora.biz.id/variasi"
+        class="product-link"
+        data-product="750ml"
+        aria-label="VICORA 750 ML"
+    >
+
+        <img
+            src="assets/product-750ml.png"
+            class="product-750"
+            alt="VICORA 750 ML"
+            draggable="false"
+        >
+
+    </a>
+
+
+    <!-- =================================================
+         PRODUCT 10 GR
+         CLICK → VARIASI
+    ================================================== -->
+
+    <a
+        href="https://www.vicora.biz.id/variasi"
+        class="product-link"
+        data-product="10gr"
+        aria-label="VICORA 10 GR"
+    >
+
+        <img
+            src="assets/product-10gr.png"
+            class="product-10"
+            alt="VICORA 10 GR"
+            draggable="false"
+        >
+
+    </a>
+
+
+    <!-- =================================================
+         SHOWER
+    ================================================== -->
+
+    <img
+        src="assets/shower.png"
+        class="layer-shower"
+        alt="Shower"
+        draggable="false"
+    >
+
+
+    <!-- =================================================
+         PRODUCT LABELS
+    ================================================== -->
+
+    <div
+        class="product-label"
+        id="label750"
+    >
+        VICORA 750 ML
+    </div>
+
+
+    <div
+        class="product-label"
+        id="label500"
+    >
+        VICORA 500 ML
+    </div>
+
+
+    <div
+        class="product-label"
+        id="label10"
+    >
+        VICORA 10 GR
+    </div>
+
+
+</section>
+
+
+
+
+
+
+<!-- ===== MAIN VICORA WEBSITE ===== -->
+
 
 
 <!-- =========================================================
@@ -3915,7 +4857,7 @@ footer{
 
 
                 <h3>
-                    MENYEGARKAN & SEGAR
+                    MENYEGARKAN
                 </h3>
 
 
@@ -4376,7 +5318,356 @@ footer{
 
 
 
+
+
+
+
+
 <script>
+/* ===== CURSOR SCENE JAVASCRIPT ===== */
+
+
+/* =========================================================
+   VICORA — EXACT CURSOR FOLLOW
+   KARAKTER = TITIK KURSOR
+   - X karakter tepat di X kursor
+   - Tidak ada smoothing / delay
+   - Tidak ada batas kiri-kanan buatan
+   - Y karakter tetap mengikuti CSS top
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const scene = document.getElementById("vicoraScene");
+    const character = document.getElementById("character");
+    const productLinks = document.querySelectorAll(".product-link");
+
+    let direction = 1;
+
+    /* =====================================================
+       POSISI KARAKTER AWAL
+    ===================================================== */
+
+    function centerCharacter() {
+
+        const rect = scene.getBoundingClientRect();
+
+        const centerX = rect.width / 2;
+
+        character.style.left = `${centerX}px`;
+
+        character.style.transform =
+            `translateX(-50%) scaleX(1)`;
+    }
+
+    centerCharacter();
+
+
+    /* =====================================================
+       FUNGSI UTAMA
+
+       X TENGAH KARAKTER = X KURSOR
+
+       Tidak memakai persen.
+       Tidak memakai requestAnimationFrame.
+       Tidak memakai interpolation.
+    ===================================================== */
+
+    function moveCharacterToCursor(clientX, clientY) {
+
+        const rect = scene.getBoundingClientRect();
+
+        /* Posisi kursor relatif terhadap scene */
+        const cursorX =
+            clientX - rect.left;
+
+        const cursorY =
+            clientY - rect.top;
+
+
+        /* =================================================
+           PARALLAX
+        ================================================= */
+
+        const normalizedX =
+            (cursorX / rect.width) - 0.5;
+
+        const normalizedY =
+            (cursorY / rect.height) - 0.5;
+
+
+        scene.style.setProperty(
+            "--mouse-x",
+            normalizedX
+        );
+
+        scene.style.setProperty(
+            "--mouse-y",
+            normalizedY
+        );
+
+
+        /* =================================================
+           ARAH KARAKTER
+        ================================================= */
+
+        const currentLeft =
+            parseFloat(
+                character.style.left
+            ) || cursorX;
+
+
+        if (cursorX > currentLeft) {
+
+            direction = 1;
+
+        }
+
+        else if (cursorX < currentLeft) {
+
+            direction = -1;
+
+        }
+
+
+        /* =================================================
+           POSISI TEPAT
+
+           LEFT = X KURSOR
+
+           TRANSFORM -50% = tengah karakter tepat
+           pada posisi LEFT.
+        ================================================= */
+
+        character.style.left =
+            `${cursorX}px`;
+
+
+        character.style.transform =
+            `translateX(-50%) scaleX(${direction})`;
+
+    }
+
+
+    /* =====================================================
+       MOUSE MOVE
+    ===================================================== */
+
+    scene.addEventListener(
+        "mousemove",
+        function (event) {
+
+            moveCharacterToCursor(
+                event.clientX,
+                event.clientY
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       TOUCH
+    ===================================================== */
+
+    scene.addEventListener(
+        "touchmove",
+        function (event) {
+
+            const touch =
+                event.touches[0];
+
+            moveCharacterToCursor(
+                touch.clientX,
+                touch.clientY
+            );
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    /* =====================================================
+       PRODUCT HOVER
+
+       TIDAK MEMINDAHKAN KARAKTER.
+       Karakter tetap 100% mengikuti kursor.
+    ===================================================== */
+
+    productLinks.forEach(function (link) {
+
+        link.addEventListener(
+            "mouseenter",
+            function () {
+
+                const product =
+                    link.querySelector("img");
+
+                product.classList.add("active");
+
+                const rect =
+                    link.getBoundingClientRect();
+
+                const sceneRect =
+                    scene.getBoundingClientRect();
+
+                showProductLabel(
+                    link,
+                    rect,
+                    sceneRect
+                );
+
+            }
+        );
+
+
+        link.addEventListener(
+            "mouseleave",
+            function () {
+
+                const product =
+                    link.querySelector("img");
+
+                product.classList.remove("active");
+
+                hideProductLabels();
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       PRODUCT LABEL
+    ===================================================== */
+
+    function showProductLabel(
+        link,
+        rect,
+        sceneRect
+    ) {
+
+        hideProductLabels();
+
+        let label = null;
+
+        if (
+            link.dataset.product === "750ml"
+        ) {
+
+            label =
+                document.getElementById(
+                    "label750"
+                );
+
+        }
+
+        if (
+            link.dataset.product === "500ml"
+        ) {
+
+            label =
+                document.getElementById(
+                    "label500"
+                );
+
+        }
+
+        if (
+            link.dataset.product === "10gr"
+        ) {
+
+            label =
+                document.getElementById(
+                    "label10"
+                );
+
+        }
+
+        if (!label) {
+            return;
+        }
+
+        label.style.left =
+            (
+                rect.left -
+                sceneRect.left +
+                rect.width / 2
+            ) + "px";
+
+        label.style.top =
+            (
+                rect.top -
+                sceneRect.top -
+                30
+            ) + "px";
+
+        label.classList.add("show");
+
+    }
+
+
+    /* =====================================================
+       HIDE LABEL
+    ===================================================== */
+
+    function hideProductLabels() {
+
+        document
+            .querySelectorAll(".product-label")
+            .forEach(function (label) {
+
+                label.classList.remove("show");
+
+            });
+
+    }
+
+
+    /* =====================================================
+       WINDOW RESIZE
+    ===================================================== */
+
+    window.addEventListener(
+        "resize",
+        function () {
+
+            /* Posisi tetap di tengah sampai
+               mouse bergerak kembali. */
+            centerCharacter();
+
+        }
+    );
+
+
+    /* =====================================================
+       PREVENT IMAGE DRAG
+    ===================================================== */
+
+    document
+        .querySelectorAll("img")
+        .forEach(function (img) {
+
+            img.addEventListener(
+                "dragstart",
+                function (event) {
+
+                    event.preventDefault();
+
+                }
+            );
+
+        });
+
+});
+
+
+
+/* ===== MAIN VICORA WEBSITE JAVASCRIPT ===== */
+
 
 /* =========================================================
    VICORA JAVASCRIPT
@@ -4917,9 +6208,7 @@ document
 */
 
 
+
 </script>
-
-
 </body>
-
 </html>
