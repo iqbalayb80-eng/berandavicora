@@ -1,0 +1,4199 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VICORA — Banana Vibes, Cleaner Days</title>
+
+<meta
+    name="description"
+    content="VICORA Banana 2-in-1 Shampoo & Body Wash"
+>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+>
+
+
+<style>
+
+/* =========================================================
+   VICORA BERANDA
+   FULL VERSION
+========================================================= */
+
+:root{
+
+    --yellow:#FFD83D;
+    --yellow-dark:#F4BC00;
+    --yellow-soft:#FFF4B8;
+
+    --cream:#F8F7F2;
+    --cream-2:#EFEEE8;
+
+    --white:#FFFFFF;
+
+    --green:#6FA84A;
+    --green-dark:#477331;
+    --green-soft:#EAF3DF;
+
+    --brown:#4A3324;
+    --brown-dark:#211811;
+
+    --text:#202020;
+    --text-soft:#686868;
+
+    --shadow:
+    0 30px 80px rgba(43,34,24,.13);
+
+    --ease:cubic-bezier(.22,1,.36,1);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    margin:0;
+
+    font-family:"Poppins",sans-serif;
+
+    color:var(--text);
+
+    background:var(--cream);
+
+    overflow-x:hidden;
+
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* =========================================================
+   SCROLL PROGRESS
+========================================================= */
+
+.scroll-progress{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:0%;
+    height:3px;
+
+    background:
+    linear-gradient(
+        90deg,
+        var(--yellow),
+        var(--green)
+    );
+
+    z-index:9999;
+
+}
+
+
+/* =========================================================
+   =========================================================
+   HERO
+   BACKGROUND DARI ASSETS
+   =========================================================
+========================================================= */
+
+.hero{
+
+    position:relative;
+
+    min-height:100svh;
+
+    display:flex;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    padding:
+    80px 6vw 70px;
+
+    background-image:
+
+    linear-gradient(
+        90deg,
+        rgba(248,247,242,.90) 0%,
+        rgba(248,247,242,.72) 38%,
+        rgba(248,247,242,.25) 70%,
+        rgba(248,247,242,.10) 100%
+    ),
+
+    url("assets/hero-background.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+}
+
+
+/* HERO LIGHT */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:0;
+
+    background:
+
+    radial-gradient(
+        circle at 75% 20%,
+        rgba(255,255,255,.35),
+        transparent 28%
+    ),
+
+    radial-gradient(
+        circle at 15% 90%,
+        rgba(111,168,74,.12),
+        transparent 30%
+    );
+
+    pointer-events:none;
+
+}
+
+
+/* HERO GLASS EFFECT */
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-30%;
+
+    right:-10%;
+
+    width:45%;
+
+    height:160%;
+
+    z-index:1;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.17),
+        transparent
+    );
+
+    transform:rotate(8deg);
+
+    pointer-events:none;
+
+}
+
+
+/* =========================================================
+   HERO CONTAINER
+========================================================= */
+
+.hero-container{
+
+    position:relative;
+
+    z-index:10;
+
+    width:min(1180px,100%);
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    .95fr
+    1.05fr;
+
+    align-items:center;
+
+    gap:40px;
+
+}
+
+
+/* =========================================================
+   HERO TEXT
+========================================================= */
+
+.hero-content{
+
+    position:relative;
+
+    z-index:20;
+
+}
+
+
+.eyebrow{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+    8px 14px;
+
+    margin-bottom:22px;
+
+    border-radius:100px;
+
+    background:
+    rgba(255,255,255,.82);
+
+    border:
+    1px solid rgba(255,255,255,.95);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.05);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
+
+    color:var(--green-dark);
+
+}
+
+
+.eyebrow-dot{
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--green);
+
+    box-shadow:
+    0 0 0 5px rgba(111,168,74,.12);
+
+}
+
+
+.hero h1{
+
+    max-width:700px;
+
+    font-size:
+    clamp(55px,7vw,100px);
+
+    line-height:.94;
+
+    letter-spacing:-5px;
+
+    font-weight:900;
+
+    color:var(--brown-dark);
+
+}
+
+
+.hero h1 span{
+
+    display:block;
+
+    color:var(--green);
+
+}
+
+
+.hero-description{
+
+    max-width:580px;
+
+    margin-top:28px;
+
+    color:var(--text-soft);
+
+    font-size:
+    clamp(14px,1.4vw,17px);
+
+    line-height:1.85;
+
+}
+
+
+.hero-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-top:32px;
+
+}
+
+
+.order-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    min-height:58px;
+
+    padding:
+    0 25px;
+
+    border-radius:100px;
+
+    background:var(--yellow);
+
+    color:var(--brown-dark);
+
+    font-size:13px;
+
+    font-weight:800;
+
+    box-shadow:
+    0 18px 35px rgba(244,188,0,.24);
+
+    transition:.35s var(--ease);
+
+}
+
+
+.order-button:hover{
+
+    transform:
+    translateY(-3px)
+    scale(1.03);
+
+    box-shadow:
+    0 24px 45px rgba(244,188,0,.32);
+
+}
+
+
+.arrow{
+
+    display:grid;
+
+    place-items:center;
+
+    width:25px;
+    height:25px;
+
+    border-radius:50%;
+
+    background:
+    rgba(0,0,0,.08);
+
+    transition:.3s var(--ease);
+
+}
+
+
+.order-button:hover .arrow{
+
+    transform:
+    translateX(4px);
+
+}
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.hero-visual{
+
+    position:relative;
+
+    min-height:620px;
+
+    display:grid;
+
+    place-items:center;
+
+}
+
+
+/* PRODUCT GLOW */
+
+.product-glow{
+
+    position:absolute;
+
+    width:
+    min(500px,75vw);
+
+    aspect-ratio:1;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+        circle,
+        rgba(255,255,255,.62),
+        rgba(224,239,228,.32) 55%,
+        transparent 72%
+    );
+
+    filter:blur(4px);
+
+    z-index:2;
+
+}
+
+
+/* =========================================================
+   PRODUCT
+========================================================= */
+
+.hero-product{
+
+    position:relative;
+
+    z-index:10;
+
+    width:
+    min(370px,62%);
+
+    max-height:560px;
+
+    object-fit:contain;
+
+    filter:
+    drop-shadow(
+        0 35px 30px rgba(46,35,24,.28)
+    );
+
+    opacity:0;
+
+    transform:
+    translateY(30px)
+    scale(.90);
+
+    animation:
+
+    productEntrance
+    1.3s var(--ease)
+    .6s forwards,
+
+    productFloat
+    5s ease-in-out
+    2s infinite;
+
+}
+
+
+@keyframes productEntrance{
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+
+    }
+
+}
+
+
+@keyframes productFloat{
+
+    0%,
+    100%{
+
+        transform:
+        translateY(0)
+        rotate(0deg);
+
+    }
+
+    50%{
+
+        transform:
+        translateY(-12px)
+        rotate(1deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   WATER
+========================================================= */
+
+.water-stream{
+
+    position:absolute;
+
+    z-index:7;
+
+    top:5%;
+    left:51%;
+
+    width:3px;
+    height:260px;
+
+    border-radius:100px;
+
+    background:
+    linear-gradient(
+        180deg,
+        transparent,
+        rgba(255,255,255,.8),
+        rgba(143,195,214,.35),
+        transparent
+    );
+
+    opacity:.65;
+
+    animation:
+    waterMove
+    2s
+    ease-in-out
+    infinite;
+
+}
+
+
+@keyframes waterMove{
+
+    0%,
+    100%{
+
+        opacity:.35;
+
+        transform:scaleY(.9);
+
+    }
+
+    50%{
+
+        opacity:.8;
+
+        transform:scaleY(1.08);
+
+    }
+
+}
+
+
+/* =========================================================
+   WATER DROPS
+========================================================= */
+
+.drop{
+
+    position:absolute;
+
+    z-index:8;
+
+    width:7px;
+    height:11px;
+
+    border-radius:
+    50% 50% 55% 55%;
+
+    background:
+    rgba(255,255,255,.7);
+
+    animation:
+    dropFall
+    var(--speed)
+    linear
+    infinite;
+
+}
+
+
+@keyframes dropFall{
+
+    0%{
+
+        transform:translateY(-80px);
+
+        opacity:0;
+
+    }
+
+    15%{
+
+        opacity:.75;
+
+    }
+
+    100%{
+
+        transform:translateY(620px);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =========================================================
+   BUBBLES
+========================================================= */
+
+.bubble{
+
+    position:absolute;
+
+    z-index:12;
+
+    width:var(--size);
+    height:var(--size);
+
+    left:var(--left);
+
+    bottom:-50px;
+
+    border:
+    1px solid rgba(255,255,255,.75);
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle at 30% 25%,
+        rgba(255,255,255,.95),
+        rgba(255,255,255,.22)
+    );
+
+    box-shadow:
+    inset 0 0 8px rgba(255,255,255,.7);
+
+    animation:
+    bubbleRise
+    var(--duration)
+    linear
+    var(--delay)
+    infinite;
+
+    pointer-events:none;
+
+}
+
+
+@keyframes bubbleRise{
+
+    0%{
+
+        transform:
+        translate3d(0,0,0)
+        scale(.75);
+
+        opacity:0;
+
+    }
+
+    12%{
+
+        opacity:.55;
+
+    }
+
+    80%{
+
+        opacity:.40;
+
+    }
+
+    100%{
+
+        transform:
+        translate3d(
+            var(--move),
+            -115vh,
+            0
+        )
+        scale(1.15);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =========================================================
+   BANANA DECORATION
+========================================================= */
+
+.banana-shape{
+
+    position:absolute;
+
+    z-index:5;
+
+    width:110px;
+    height:50px;
+
+    border:
+    15px solid var(--yellow);
+
+    border-left-color:transparent;
+
+    border-bottom-color:transparent;
+
+    border-radius:50%;
+
+    filter:
+    drop-shadow(
+        0 10px 10px rgba(0,0,0,.08)
+    );
+
+    animation:
+    bananaFloat
+    6s ease-in-out
+    infinite;
+
+}
+
+
+@keyframes bananaFloat{
+
+    0%,
+    100%{
+
+        transform:
+        rotate(-35deg)
+        translateY(0);
+
+    }
+
+    50%{
+
+        transform:
+        rotate(-29deg)
+        translateY(-10px);
+
+    }
+
+}
+
+
+.banana-one{
+
+    top:16%;
+    right:7%;
+
+}
+
+
+.banana-two{
+
+    bottom:24%;
+    left:3%;
+
+    transform:
+    rotate(140deg)
+    scale(.65);
+
+}
+
+
+/* =========================================================
+   FOAM
+========================================================= */
+
+.foam{
+
+    position:absolute;
+
+    z-index:4;
+
+    bottom:11%;
+    right:17%;
+
+    width:110px;
+    height:45px;
+
+}
+
+
+.foam span{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:var(--s);
+    height:var(--s);
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.72);
+
+    box-shadow:
+    0 5px 12px rgba(0,0,0,.04);
+
+    animation:
+    foamFloat
+    3s ease-in-out
+    infinite;
+
+}
+
+
+.foam span:nth-child(1){
+    left:0;
+    --s:30px;
+}
+
+.foam span:nth-child(2){
+    left:20px;
+    bottom:10px;
+    --s:40px;
+    animation-delay:.3s;
+}
+
+.foam span:nth-child(3){
+    left:52px;
+    bottom:4px;
+    --s:27px;
+    animation-delay:.6s;
+}
+
+.foam span:nth-child(4){
+    left:72px;
+    bottom:14px;
+    --s:35px;
+    animation-delay:.9s;
+}
+
+
+@keyframes foamFloat{
+
+    0%,
+    100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-7px);
+    }
+
+}
+
+
+/* =========================================================
+   SCROLL HINT
+========================================================= */
+
+.scroll-hint{
+
+    position:absolute;
+
+    z-index:20;
+
+    bottom:25px;
+    left:50%;
+
+    transform:
+    translateX(-50%);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:7px;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:1.5px;
+
+    color:#777;
+
+}
+
+
+.scroll-line{
+
+    width:1px;
+    height:35px;
+
+    background:
+    rgba(0,0,0,.15);
+
+}
+
+
+/* =========================================================
+   =========================================================
+   BUAT KAMU YANG...
+========================================================= */
+
+.characters-section{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:
+    115px 6vw 125px;
+
+    background:
+
+    radial-gradient(
+        circle at 0% 0%,
+        rgba(255,216,61,.17),
+        transparent 20%
+    ),
+
+    radial-gradient(
+        circle at 100% 100%,
+        rgba(111,168,74,.12),
+        transparent 22%
+    ),
+
+    #FFFDF0;
+
+}
+
+
+/* DECORATION */
+
+.characters-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:230px;
+    height:230px;
+
+    top:-130px;
+    left:-80px;
+
+    border-radius:50%;
+
+    background:
+    var(--yellow);
+
+    opacity:.12;
+
+}
+
+
+.characters-section::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+    height:260px;
+
+    right:-120px;
+    bottom:-130px;
+
+    border-radius:50%;
+
+    background:
+    var(--green);
+
+    opacity:.10;
+
+}
+
+
+/* =========================================================
+   CHARACTER HEADER
+========================================================= */
+
+.characters-header{
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+
+.character-label{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin-bottom:15px;
+
+    color:var(--green-dark);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+}
+
+
+.character-label::before,
+.character-label::after{
+
+    content:"";
+
+    width:30px;
+    height:2px;
+
+    border-radius:99px;
+
+    background:
+    var(--yellow);
+
+}
+
+
+.characters-title{
+
+    font-size:
+    clamp(42px,6vw,75px);
+
+    line-height:.95;
+
+    letter-spacing:-3px;
+
+    font-weight:900;
+
+    color:var(--green-dark);
+
+}
+
+
+.characters-title span{
+
+    color:var(--brown-dark);
+
+}
+
+
+/* =========================================================
+   CHARACTER BANANA
+========================================================= */
+
+.character-banana{
+
+    position:absolute;
+
+    width:75px;
+    height:34px;
+
+    border:
+    10px solid var(--yellow);
+
+    border-left-color:transparent;
+
+    border-bottom-color:transparent;
+
+    border-radius:50%;
+
+}
+
+
+.character-banana.one{
+
+    top:35px;
+    left:4%;
+
+    transform:
+    rotate(-30deg);
+
+}
+
+
+.character-banana.two{
+
+    top:40px;
+    right:7%;
+
+    transform:
+    rotate(150deg)
+    scale(.8);
+
+}
+
+
+/* =========================================================
+   CHARACTER DOTS
+========================================================= */
+
+.character-dots{
+
+    position:absolute;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,7px);
+
+    gap:7px;
+
+}
+
+
+.character-dots span{
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:
+    var(--yellow);
+
+}
+
+
+.dots-left{
+
+    top:140px;
+    left:3%;
+
+}
+
+
+.dots-right{
+
+    bottom:45px;
+    right:3%;
+
+}
+
+
+/* =========================================================
+   CHARACTER GRID
+========================================================= */
+
+.character-grid{
+
+    position:relative;
+
+    z-index:3;
+
+    width:min(1100px,100%);
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:22px;
+
+}
+
+
+/* =========================================================
+   CHARACTER CARD
+========================================================= */
+
+.character-card{
+
+    position:relative;
+
+    min-height:270px;
+
+    overflow:hidden;
+
+    display:grid;
+
+    grid-template-columns:
+    55%
+    45%;
+
+    align-items:stretch;
+
+    border:
+    2px solid rgba(255,255,255,.95);
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+        120deg,
+        rgba(255,255,255,.97),
+        rgba(248,247,241,.90)
+    );
+
+    box-shadow:
+    0 15px 45px rgba(65,54,30,.08);
+
+    transition:
+    transform .45s var(--ease),
+    box-shadow .45s var(--ease);
+
+}
+
+
+.character-card:hover{
+
+    transform:
+    translateY(-7px);
+
+    box-shadow:
+    0 28px 60px rgba(65,54,30,.14);
+
+}
+
+
+/* =========================================================
+   CHARACTER INFO
+========================================================= */
+
+.character-info{
+
+    position:relative;
+
+    z-index:4;
+
+    padding:
+    35px 12px 30px 36px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    justify-content:center;
+
+}
+
+
+.character-number{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:54px;
+
+    height:36px;
+
+    padding:
+    0 12px;
+
+    margin-bottom:10px;
+
+    border-radius:100px;
+
+    background:
+    var(--yellow);
+
+    color:var(--green-dark);
+
+    font-size:16px;
+
+    font-weight:900;
+
+}
+
+
+/* =========================================================
+   CHARACTER NAME
+========================================================= */
+
+.character-name{
+
+    display:inline;
+
+    max-width:100%;
+
+    width:max-content;
+
+    padding:
+    2px 7px;
+
+    margin-bottom:0;
+
+    color:var(--green-dark);
+
+    font-size:
+    clamp(17px,1.7vw,23px);
+
+    line-height:1.7;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    background:
+    linear-gradient(
+        transparent 10%,
+        var(--yellow) 10%,
+        var(--yellow) 88%,
+        transparent 88%
+    );
+
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.character-description{
+
+    margin-top:16px;
+
+    max-width:240px;
+
+    color:var(--green-dark);
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    font-weight:500;
+
+}
+
+
+/* =========================================================
+   CHARACTER IMAGE WRAPPER
+   FIX AGAR ARTWORK TIDAK TERPOTONG
+========================================================= */
+
+.character-image-wrapper{
+
+    position:relative;
+
+    min-height:270px;
+
+    height:100%;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    padding:
+    12px 10px 0 5px;
+
+}
+
+
+/* DECORATIVE CIRCLE */
+
+.character-image-wrapper::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:190px;
+
+    height:190px;
+
+    right:-40px;
+
+    bottom:-70px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,216,61,.16);
+
+    z-index:0;
+
+}
+
+
+/* =========================================================
+   CHARACTER IMAGE
+   PENTING:
+   TIDAK MENGGUNAKAN WIDTH 100% + HEIGHT 100%
+========================================================= */
+
+.character-image{
+
+    position:relative;
+
+    z-index:2;
+
+    display:block;
+
+    width:auto;
+
+    height:auto;
+
+    max-width:92%;
+
+    max-height:92%;
+
+    object-fit:contain;
+
+    object-position:center bottom;
+
+    transform:
+    translateY(0);
+
+    transition:
+    transform .55s var(--ease);
+
+}
+
+
+/* HOVER */
+
+.character-card:hover
+.character-image{
+
+    transform:
+    translateY(-4px)
+    scale(1.025);
+
+}
+
+
+/* =========================================================
+   SPLASH
+========================================================= */
+
+.character-splash{
+
+    position:absolute;
+
+    z-index:5;
+
+    width:38px;
+    height:38px;
+
+    pointer-events:none;
+
+}
+
+
+.character-splash::before,
+.character-splash::after{
+
+    content:"";
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:
+    var(--yellow);
+
+}
+
+
+.character-splash::before{
+
+    width:8px;
+    height:24px;
+
+    left:15px;
+
+    transform:
+    rotate(35deg);
+
+}
+
+
+.character-splash::after{
+
+    width:7px;
+    height:7px;
+
+    right:0;
+    top:0;
+
+}
+
+
+.character-card:nth-child(1)
+.character-splash{
+
+    top:20px;
+    right:20px;
+
+}
+
+
+.character-card:nth-child(2)
+.character-splash{
+
+    top:20px;
+    right:20px;
+
+}
+
+
+.character-card:nth-child(3)
+.character-splash{
+
+    bottom:20px;
+    left:45%;
+
+}
+
+
+.character-card:nth-child(4)
+.character-splash{
+
+    top:20px;
+    left:47%;
+
+}
+
+
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
+
+.section{
+
+    position:relative;
+
+    padding:
+    130px 6vw;
+
+    overflow:hidden;
+
+}
+
+
+.container{
+
+    width:min(1180px,100%);
+
+    margin:auto;
+
+}
+
+
+.section-label{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:18px;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:1.7px;
+
+    color:var(--green-dark);
+
+}
+
+
+.section-label::before{
+
+    content:"";
+
+    width:25px;
+    height:2px;
+
+    border-radius:20px;
+
+    background:
+    var(--yellow);
+
+}
+
+
+.section-title{
+
+    max-width:800px;
+
+    font-size:
+    clamp(40px,5vw,72px);
+
+    line-height:1;
+
+    letter-spacing:-3px;
+
+    font-weight:900;
+
+    color:var(--brown-dark);
+
+}
+
+
+.highlight{
+
+    color:var(--green);
+
+}
+
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.story{
+
+    background:
+    #FFFDF6;
+
+}
+
+
+.story-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    .9fr
+    1.1fr;
+
+    gap:80px;
+
+    align-items:center;
+
+}
+
+
+.story-visual{
+
+    min-height:550px;
+
+    position:relative;
+
+    display:grid;
+
+    place-items:center;
+
+}
+
+
+.story-card{
+
+    position:absolute;
+
+    width:420px;
+
+    aspect-ratio:.82;
+
+    border-radius:45px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #FFE66D,
+        #FFD13A
+    );
+
+    transform:rotate(-6deg);
+
+    box-shadow:
+    var(--shadow);
+
+}
+
+
+.story-product{
+
+    position:relative;
+
+    z-index:3;
+
+    width:290px;
+
+    filter:
+    drop-shadow(
+        0 30px 30px rgba(0,0,0,.18)
+    );
+
+}
+
+
+.story-copy{
+
+    margin-top:30px;
+
+    display:grid;
+
+    gap:23px;
+
+    color:var(--text-soft);
+
+    font-size:15px;
+
+    line-height:1.9;
+
+}
+
+
+.story-copy p:first-child{
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:var(--brown);
+
+}
+
+
+/* =========================================================
+   WHY VICORA
+========================================================= */
+
+.why{
+
+    background:#FFFFFF;
+
+}
+
+
+.why-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    gap:30px;
+
+    margin-bottom:55px;
+
+}
+
+
+.why-intro{
+
+    max-width:330px;
+
+    color:var(--text-soft);
+
+    font-size:13px;
+
+    line-height:1.8;
+
+}
+
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:17px;
+
+}
+
+
+.feature{
+
+    min-height:320px;
+
+    padding:28px;
+
+    border:
+    1px solid rgba(0,0,0,.07);
+
+    border-radius:28px;
+
+    background:#FCFCFC;
+
+    transition:.45s var(--ease);
+
+}
+
+
+.feature:hover{
+
+    transform:
+    translateY(-8px);
+
+    box-shadow:
+    0 25px 55px rgba(0,0,0,.09);
+
+}
+
+
+.feature-number{
+
+    font-size:10px;
+
+    color:#999;
+
+    font-weight:800;
+
+}
+
+
+.feature-icon{
+
+    width:60px;
+    height:60px;
+
+    display:grid;
+
+    place-items:center;
+
+    margin:
+    35px 0 25px;
+
+    border-radius:18px;
+
+    background:
+    #EEF6E9;
+
+    color:var(--green-dark);
+
+    transition:.4s var(--ease);
+
+}
+
+
+.feature:hover .feature-icon{
+
+    background:
+    var(--yellow-soft);
+
+    transform:
+    rotate(-6deg)
+    translateY(-3px);
+
+}
+
+
+.feature-icon svg{
+
+    width:28px;
+    height:28px;
+
+}
+
+
+.feature h3{
+
+    margin-bottom:12px;
+
+    font-size:17px;
+
+    font-weight:800;
+
+    color:var(--brown-dark);
+
+}
+
+
+.feature p{
+
+    color:var(--text-soft);
+
+    font-size:12px;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process{
+
+    background:
+    var(--brown-dark);
+
+    color:white;
+
+}
+
+
+.process-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr
+    .9fr;
+
+    gap:80px;
+
+    align-items:center;
+
+}
+
+
+.process .section-label{
+
+    color:var(--yellow);
+
+}
+
+
+.process .section-title{
+
+    color:white;
+
+}
+
+
+.process-copy{
+
+    max-width:650px;
+
+    margin-top:30px;
+
+    color:
+    rgba(255,255,255,.68);
+
+    font-size:15px;
+
+    line-height:1.9;
+
+}
+
+
+.process-copy p+p{
+
+    margin-top:20px;
+
+}
+
+
+.process-visual{
+
+    min-height:500px;
+
+    display:grid;
+
+    place-items:center;
+
+    position:relative;
+
+}
+
+
+.process-ring{
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    border-radius:50%;
+
+    border:
+    1px solid rgba(255,255,255,.12);
+
+    animation:
+    rotateRing
+    20s
+    linear
+    infinite;
+
+}
+
+
+@keyframes rotateRing{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+.process-product{
+
+    position:relative;
+
+    z-index:3;
+
+    width:300px;
+
+    filter:
+    drop-shadow(
+        0 30px 30px rgba(0,0,0,.4)
+    );
+
+}
+
+
+.process-tag{
+
+    position:absolute;
+
+    z-index:4;
+
+    padding:
+    10px 14px;
+
+    border:
+    1px solid rgba(255,255,255,.12);
+
+    border-radius:100px;
+
+    background:
+    rgba(255,255,255,.07);
+
+    backdrop-filter:blur(15px);
+
+    font-size:9px;
+
+    font-weight:700;
+
+}
+
+
+.process-tag.one{
+    top:15%;
+    left:2%;
+}
+
+.process-tag.two{
+    top:25%;
+    right:0;
+}
+
+.process-tag.three{
+    bottom:18%;
+    right:4%;
+}
+
+.process-tag.four{
+    bottom:12%;
+    left:7%;
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.final{
+
+    padding:
+    110px 6vw;
+
+    background:
+    linear-gradient(
+        135deg,
+        #FFF7D3,
+        #F2F5EA
+    );
+
+}
+
+
+.final-card{
+
+    width:min(1050px,100%);
+
+    margin:auto;
+
+    padding:
+    70px 30px;
+
+    text-align:center;
+
+    border-radius:45px;
+
+    background:
+    rgba(255,255,255,.7);
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.08);
+
+}
+
+
+.final-card h2{
+
+    font-size:
+    clamp(38px,5vw,65px);
+
+    line-height:1;
+
+    letter-spacing:-3px;
+
+    font-weight:900;
+
+    color:var(--brown-dark);
+
+}
+
+
+.final-card p{
+
+    margin:
+    20px auto 28px;
+
+    color:var(--text-soft);
+
+    font-size:14px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    padding:
+    30px 6vw;
+
+    background:
+    #211811;
+
+    color:
+    rgba(255,255,255,.55);
+
+}
+
+
+.footer{
+
+    width:min(1180px,100%);
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+.footer strong{
+
+    color:white;
+
+    font-size:19px;
+
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+    translateY(40px);
+
+    transition:
+    opacity .9s var(--ease),
+    transform .9s var(--ease);
+
+}
+
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1024px){
+
+    .hero-container{
+
+        grid-template-columns:
+        1fr 1fr;
+
+    }
+
+
+    .hero h1{
+
+        font-size:
+        clamp(48px,7vw,75px);
+
+    }
+
+
+    .features{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+
+    .character-card{
+
+        grid-template-columns:
+        52%
+        48%;
+
+    }
+
+
+    .character-info{
+
+        padding-left:25px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+    .hero{
+
+        min-height:auto;
+
+        padding:
+        80px 20px 70px;
+
+        background-position:
+        center center;
+
+    }
+
+
+    .hero-container{
+
+        grid-template-columns:1fr;
+
+        gap:15px;
+
+    }
+
+
+    .hero-content{
+
+        text-align:center;
+
+    }
+
+
+    .hero h1{
+
+        font-size:
+        clamp(46px,14vw,70px);
+
+        letter-spacing:-3px;
+
+    }
+
+
+    .hero-description{
+
+        margin:
+        22px auto 0;
+
+        font-size:13px;
+
+        line-height:1.8;
+
+    }
+
+
+    .hero-actions{
+
+        justify-content:center;
+
+    }
+
+
+    .hero-visual{
+
+        min-height:450px;
+
+    }
+
+
+    .hero-product{
+
+        width:280px;
+
+    }
+
+
+    .product-glow{
+
+        width:370px;
+
+    }
+
+
+    /* ==========================================
+       CHARACTER SECTION
+    ========================================== */
+
+    .characters-section{
+
+        padding:
+        85px 18px 90px;
+
+    }
+
+
+    .characters-header{
+
+        margin-bottom:45px;
+
+    }
+
+
+    .characters-title{
+
+        font-size:
+        clamp(40px,12vw,60px);
+
+        letter-spacing:-2px;
+
+    }
+
+
+    .character-grid{
+
+        grid-template-columns:1fr;
+
+        gap:18px;
+
+    }
+
+
+    .character-card{
+
+        min-height:260px;
+
+        grid-template-columns:
+        55%
+        45%;
+
+    }
+
+
+    .character-info{
+
+        padding:
+        25px 8px 25px 24px;
+
+    }
+
+
+    .character-name{
+
+        font-size:17px;
+
+        line-height:1.65;
+
+    }
+
+
+    .character-description{
+
+        font-size:11px;
+
+        max-width:190px;
+
+    }
+
+
+    .character-image-wrapper{
+
+        min-height:260px;
+
+        padding:
+        10px 7px 0 0;
+
+    }
+
+
+    .character-image{
+
+        max-width:95%;
+
+        max-height:92%;
+
+    }
+
+
+    .character-dots{
+
+        display:none;
+
+    }
+
+
+    .section{
+
+        padding:
+        90px 20px;
+
+    }
+
+
+    .story-grid{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+
+    }
+
+
+    .story-visual{
+
+        min-height:430px;
+
+    }
+
+
+    .story-card{
+
+        width:330px;
+
+    }
+
+
+    .story-product{
+
+        width:240px;
+
+    }
+
+
+    .why-header{
+
+        display:block;
+
+    }
+
+
+    .why-intro{
+
+        margin-top:20px;
+
+    }
+
+
+    .features{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .feature{
+
+        min-height:270px;
+
+    }
+
+
+    .process-grid{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+
+    }
+
+
+    .process-visual{
+
+        min-height:400px;
+
+    }
+
+
+    .process-ring{
+
+        width:320px;
+        height:320px;
+
+    }
+
+
+    .process-product{
+
+        width:240px;
+
+    }
+
+
+    .footer{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        gap:10px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:390px){
+
+    .hero{
+
+        padding-left:16px;
+
+        padding-right:16px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:45px;
+
+    }
+
+
+    .hero-visual{
+
+        min-height:390px;
+
+    }
+
+
+    .hero-product{
+
+        width:240px;
+
+    }
+
+
+    .order-button{
+
+        width:100%;
+
+    }
+
+
+    .character-card{
+
+        min-height:230px;
+
+        grid-template-columns:
+        54%
+        46%;
+
+    }
+
+
+    .character-info{
+
+        padding:
+        20px 4px 20px 18px;
+
+    }
+
+
+    .character-number{
+
+        min-width:45px;
+
+        height:31px;
+
+        font-size:14px;
+
+    }
+
+
+    .character-name{
+
+        font-size:14px;
+
+        line-height:1.7;
+
+    }
+
+
+    .character-description{
+
+        font-size:10px;
+
+        line-height:1.6;
+
+    }
+
+
+    .character-image-wrapper{
+
+        min-height:230px;
+
+    }
+
+
+    .character-image{
+
+        max-width:96%;
+
+        max-height:90%;
+
+    }
+
+
+    .story-card{
+
+        width:290px;
+
+    }
+
+
+    .story-product{
+
+        width:210px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms!important;
+
+        animation-iteration-count:1!important;
+
+        transition-duration:.01ms!important;
+
+        scroll-behavior:auto!important;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     SCROLL PROGRESS
+========================================================= -->
+
+<div
+    class="scroll-progress"
+    id="scrollProgress">
+</div>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section
+    class="hero"
+    id="beranda">
+
+
+    <!-- BUBBLES -->
+
+    <span
+        class="bubble"
+        style="
+        --size:18px;
+        --left:6%;
+        --duration:12s;
+        --delay:0s;
+        --move:25px;
+        ">
+    </span>
+
+
+    <span
+        class="bubble"
+        style="
+        --size:10px;
+        --left:15%;
+        --duration:15s;
+        --delay:2s;
+        --move:-25px;
+        ">
+    </span>
+
+
+    <span
+        class="bubble"
+        style="
+        --size:24px;
+        --left:75%;
+        --duration:13s;
+        --delay:1s;
+        --move:30px;
+        ">
+    </span>
+
+
+    <span
+        class="bubble"
+        style="
+        --size:12px;
+        --left:90%;
+        --duration:10s;
+        --delay:3s;
+        --move:-20px;
+        ">
+    </span>
+
+
+    <span
+        class="bubble"
+        style="
+        --size:30px;
+        --left:55%;
+        --duration:16s;
+        --delay:4s;
+        --move:35px;
+        ">
+    </span>
+
+
+
+    <!-- WATER DROPS -->
+
+    <span
+        class="drop"
+        style="
+        left:53%;
+        --speed:2.2s;
+        animation-delay:.2s;
+        ">
+    </span>
+
+
+    <span
+        class="drop"
+        style="
+        left:55%;
+        --speed:2.6s;
+        animation-delay:1s;
+        ">
+    </span>
+
+
+    <span
+        class="drop"
+        style="
+        left:57%;
+        --speed:2s;
+        animation-delay:.5s;
+        ">
+    </span>
+
+
+    <span
+        class="drop"
+        style="
+        left:59%;
+        --speed:2.8s;
+        animation-delay:1.5s;
+        ">
+    </span>
+
+
+
+    <div class="hero-container">
+
+
+        <!-- HERO TEXT -->
+
+        <div class="hero-content">
+
+
+            <div class="eyebrow reveal">
+
+                <span class="eyebrow-dot"></span>
+
+                BANANA 2-IN-1
+                SHAMPOO & BODY WASH
+
+            </div>
+
+
+            <h1 class="reveal">
+
+                Banana Vibes,
+
+                <span>
+                    Cleaner Days
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description reveal">
+
+                Satu produk buat rambut dan badan. VICORA 2-in-1 Shampoo & Body Wash dengan bahan utama pisang untuk nemenin rutinitas mandi kamu jadi lebih praktis, fresh, dan nggak ribet.
+
+            </p>
+
+
+            <div class="hero-actions reveal">
+
+
+                <a
+                    href="https://www.google.com/url?q=https%3A%2F%2Fwa.me%2F6285714858798&sa=D&sntz=1&usg=AOvVaw1CQUinHDw63MowMRKoWykU"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="order-button">
+
+                    Pesan Disini
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- HERO PRODUCT -->
+
+        <div class="hero-visual">
+
+
+            <div class="product-glow"></div>
+
+
+            <div class="banana-shape banana-one"></div>
+
+            <div class="banana-shape banana-two"></div>
+
+
+            <div class="foam">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <img
+                class="hero-product"
+                src="assets/produk-vicora.png"
+                alt="VICORA Banana 2-in-1 Shampoo & Body Wash"
+            >
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="scroll-hint">
+
+        SCROLL
+
+        <span class="scroll-line"></span>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     BUAT KAMU YANG...
+========================================================= -->
+
+<section
+    class="characters-section"
+    id="buat-kamu">
+
+
+    <div class="character-banana one"></div>
+
+    <div class="character-banana two"></div>
+
+
+
+    <div class="character-dots dots-left">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+
+
+    <div class="character-dots dots-right">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+
+
+    <div class="characters-header">
+
+
+
+
+        <h2 class="characters-title reveal">
+
+            BUAT KAMU
+            <span>YANG...</span>
+
+        </h2>
+
+
+    </div>
+
+
+
+    <div class="character-grid">
+
+
+        <!-- =================================================
+             CHARACTER 01
+        ================================================== -->
+
+        <article class="character-card reveal">
+
+
+            <div class="character-info">
+
+
+                <div class="character-number">
+                    01
+                </div>
+
+
+                <h3 class="character-name">
+                    THE BUSY ONE
+                </h3>
+
+
+                <p class="character-description">
+
+                    Bangun kesiangan tapi tetap harus tampil fresh?
+
+                </p>
+
+
+            </div>
+
+
+            <div class="character-image-wrapper">
+
+
+                <span class="character-splash"></span>
+
+
+                <img
+                    class="character-image"
+                    src="assets/character-busy-one.png"
+                    alt="The Busy One"
+                    loading="lazy"
+                >
+
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- =================================================
+             CHARACTER 02
+        ================================================== -->
+
+        <article class="character-card reveal">
+
+
+            <div class="character-info">
+
+
+                <div class="character-number">
+                    02
+                </div>
+
+
+                <h3 class="character-name">
+                    THE MINIMALIST
+                </h3>
+
+
+                <p class="character-description">
+
+                    Nggak suka kamar mandi penuh botol?
+
+                </p>
+
+
+            </div>
+
+
+            <div class="character-image-wrapper">
+
+
+                <span class="character-splash"></span>
+
+
+                <img
+                    class="character-image"
+                    src="assets/character-minimalist.png"
+                    alt="The Minimalist"
+                    loading="lazy"
+                >
+
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- =================================================
+             CHARACTER 03
+        ================================================== -->
+
+        <article class="character-card reveal">
+
+
+            <div class="character-info">
+
+
+                <div class="character-number">
+                    03
+                </div>
+
+
+                <h3 class="character-name">
+                    THE ACTIVE ONE
+                </h3>
+
+
+                <p class="character-description">
+
+                    Habis olahraga dan butuh mandi cepat?
+
+                </p>
+
+
+            </div>
+
+
+            <div class="character-image-wrapper">
+
+
+                <span class="character-splash"></span>
+
+
+                <img
+                    class="character-image"
+                    src="assets/character-active-one.png"
+                    alt="The Active One"
+                    loading="lazy"
+                >
+
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- =================================================
+             CHARACTER 04
+        ================================================== -->
+
+        <article class="character-card reveal">
+
+
+            <div class="character-info">
+
+
+                <div class="character-number">
+                    04
+                </div>
+
+
+                <h3 class="character-name">
+                    THE BANANA LOVER
+                </h3>
+
+
+                <p class="character-description">
+
+                    Kalau ada pisang, kenapa harus biasa aja?
+
+                </p>
+
+
+            </div>
+
+
+            <div class="character-image-wrapper">
+
+
+                <span class="character-splash"></span>
+
+
+                <img
+                    class="character-image"
+                    src="assets/character-banana-lover.png"
+                    alt="The Banana Lover"
+                    loading="lazy"
+                >
+
+
+            </div>
+
+
+        </article>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     TENTANG VICORA
+========================================================= -->
+
+<section
+    class="section story"
+    id="tentang">
+
+
+    <div class="container story-grid">
+
+
+        <div class="story-visual reveal">
+
+
+            <div class="story-card"></div>
+
+
+            <img
+                class="story-product"
+                src="assets/produk-vicora.png"
+                alt="Produk VICORA"
+                loading="lazy"
+            >
+
+
+        </div>
+
+
+
+        <div>
+
+            <h2 class="section-title reveal">
+
+                Praktis,
+
+                <span class="highlight">
+                    Segar,
+                </span>
+
+                Tanpa Ribet!
+
+            </h2>
+
+
+            <div class="story-copy">
+
+
+                <p class="reveal">
+
+                    Kami ingin mengenalkan Anda pada Vicora, sabun dan shampo 2 in 1 dengan ekstrak pisang alami, dibuat khusus untuk pria aktif yang nggak punya waktu ribet urusan mandi. Cukup satu botol, tubuh dan rambut langsung bersih maksimal.
+
+                </p>
+
+
+                <p class="reveal">
+
+                    Diformulasikan dengan ekstrak pisang yang kaya nutrisi, Vicora membantu mengangkat kotoran dan minyak berlebih di kulit, sekaligus menutrisi rambut biar nggak gampang kusam dan berketombe. Cocok untuk Anda yang mobilitasnya tinggi, olahraga, atau kerja seharian penuh mandi jadi lebih cepat tanpa mengorbankan kesegaran. Wangi pisang yang maskulin dan tahan lama bikin Anda tetap percaya diri, dari pagi rapat sampai malam nongkrong bareng teman.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     KENAPA VICORA
+========================================================= -->
+
+<section
+    class="section why"
+    id="kenapa">
+
+
+    <div class="container">
+
+
+        <div class="why-header">
+
+
+            <div>
+
+
+                <div class="section-label reveal">
+                    WHY VICORA
+                </div>
+
+
+                <h2 class="section-title reveal">
+
+                    KENAPA
+
+                    <span class="highlight">
+                        VICORA..??
+                    </span>
+
+                </h2>
+
+
+            </div>
+
+
+            <p class="why-intro reveal">
+
+                Dirancang untuk membuat rutinitas mandi lebih praktis, fresh, dan nggak ribet.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="features">
+
+
+            <article class="feature reveal">
+
+
+                <span class="feature-number">
+                    01 / 04
+                </span>
+
+
+                <div class="feature-icon">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8">
+
+                        <path
+                            d="M12 3s6 6.3 6 11a6 6 0 0 1-12 0c0-4.7 6-11 6-11Z"
+                        />
+
+                    </svg>
+
+                </div>
+
+
+                <h3>
+                    MENYEGARKAN & SEGAR
+                </h3>
+
+
+                <p>
+
+                    Perawatan diri dengan konsep yang playful dan disertai dengan aroma yang hidup dan menyegarkan.
+
+                </p>
+
+
+            </article>
+
+
+
+            <article class="feature reveal">
+
+
+                <span class="feature-number">
+                    02 / 04
+                </span>
+
+
+                <div class="feature-icon">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8">
+
+                        <path
+                            d="M20 4C11 4 5 7 5 14c0 3 2 5 5 5 7 0 10-6 10-15Z"
+                        />
+
+                        <path
+                            d="M4 20c3-5 7-8 13-10"
+                        />
+
+                    </svg>
+
+                </div>
+
+
+                <h3>
+                    BERBAHAN DASAR PISANG
+                </h3>
+
+
+                <p>
+
+                    Bahan utama pisang yang membuat VICORA punya karakter unik dan berbeda dari produk 2-in-1 biasa.
+
+                </p>
+
+
+            </article>
+
+
+
+            <article class="feature reveal">
+
+
+                <span class="feature-number">
+                    03 / 04
+                </span>
+
+
+                <div class="feature-icon">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8">
+
+                        <path
+                            d="M13 2 3 14h8l-1 8 10-12h-8l1-8Z"
+                        />
+
+                    </svg>
+
+                </div>
+
+
+                <h3>
+                    PRAKTIS
+                </h3>
+
+
+                <p>
+
+                    Cocok digunakan untuk kamu yang punya mobilitas tinggi dan nggak mau ribet.
+
+                </p>
+
+
+            </article>
+
+
+
+            <article class="feature reveal">
+
+
+                <span class="feature-number">
+                    04 / 04
+                </span>
+
+
+                <div class="feature-icon">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8">
+
+                        <path
+                            d="m12 2 9 5-9 5-9-5 9-5Z"
+                        />
+
+                        <path
+                            d="m3 12 9 5 9-5"
+                        />
+
+                        <path
+                            d="m3 17 9 5 9-5"
+                        />
+
+                    </svg>
+
+                </div>
+
+
+                <h3>
+                    2-in-1
+                </h3>
+
+
+                <p>
+
+                    Shampoo sekaligus body wash. Satu produk untuk dua kebutuhan.
+
+                </p>
+
+
+            </article>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     CARA KAMI MEMBUAT
+========================================================= -->
+
+<section
+    class="section process"
+    id="cara">
+
+
+    <div class="container process-grid">
+
+
+        <div>
+
+
+
+            <h2 class="section-title reveal">
+
+                Cara Kami
+
+                <span>
+                    Membuat Vicora
+                </span>
+
+            </h2>
+
+
+            <div class="process-copy">
+
+
+                <p class="reveal">
+
+                    Kami memilih dan mengolah bahan dengan cermat untuk menghasilkan Vicora Pisang 2-in-1, perpaduan sabun dan shampoo yang praktis untuk rutinitas sehari-hari.
+
+                </p>
+
+
+                <p class="reveal">
+
+                    Setiap proses diperhatikan untuk menjaga kualitas produk, sehingga kamu bisa mendapatkan pengalaman mandi yang fresh, praktis, dan penuh banana vibes.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="process-visual reveal">
+
+
+            <div class="process-ring"></div>
+
+
+            <span class="process-tag one">
+                CAREFULLY SELECTED
+            </span>
+
+
+            <span class="process-tag two">
+                BANANA BASED
+            </span>
+
+
+            <span class="process-tag three">
+                2-IN-1
+            </span>
+
+
+            <span class="process-tag four">
+                DAILY ROUTINE
+            </span>
+
+
+            <img
+                class="process-product"
+                src="assets/produk-vicora.png"
+                alt="VICORA Pisang 2-in-1"
+                loading="lazy"
+            >
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     FINAL CTA
+========================================================= -->
+
+<section class="final">
+
+
+    <div class="final-card reveal">
+
+
+        <h2>
+
+            Banana Vibes,
+            Cleaner Days.
+
+        </h2>
+
+
+        <p>
+
+            Satu produk buat rambut dan badan.
+
+        </p>
+
+
+        <a
+            href="https://www.google.com/url?q=https%3A%2F%2Fwa.me%2F6285714858798&sa=D&sntz=1&usg=AOvVaw1CQUinHDw63MowMRKoWykU"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="order-button">
+
+            Pesan Disini
+
+            <span class="arrow">
+                →
+            </span>
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+
+    <div class="footer">
+
+
+        <strong>
+            VICORA
+        </strong>
+
+
+        <span>
+            Banana Vibes, Cleaner Days.
+        </span>
+
+
+    </div>
+
+
+</footer>
+
+
+
+<script>
+
+/* =========================================================
+   VICORA JAVASCRIPT
+========================================================= */
+
+
+/* =========================================================
+   PRODUCT IMAGE
+========================================================= */
+
+const PRODUCT_IMAGE =
+"assets/produk-vicora.png";
+
+
+document
+.querySelectorAll(
+    ".hero-product, .story-product, .process-product"
+)
+.forEach(function(img){
+
+    img.src =
+    PRODUCT_IMAGE;
+
+});
+
+
+
+/* =========================================================
+   CHARACTER IMAGES
+========================================================= */
+
+const CHARACTER_IMAGES = {
+
+    busy:
+    "assets/character-busy-one.png",
+
+    minimalist:
+    "assets/character-minimalist.png",
+
+    active:
+    "assets/character-active-one.png",
+
+    banana:
+    "assets/character-banana-lover.png"
+
+};
+
+
+document
+.querySelectorAll(
+    ".character-image"
+)
+.forEach(function(img){
+
+    const alt =
+    img.getAttribute("alt");
+
+
+    if(
+        alt === "The Busy One"
+    ){
+
+        img.src =
+        CHARACTER_IMAGES.busy;
+
+    }
+
+
+    if(
+        alt === "The Minimalist"
+    ){
+
+        img.src =
+        CHARACTER_IMAGES.minimalist;
+
+    }
+
+
+    if(
+        alt === "The Active One"
+    ){
+
+        img.src =
+        CHARACTER_IMAGES.active;
+
+    }
+
+
+    if(
+        alt === "The Banana Lover"
+    ){
+
+        img.src =
+        CHARACTER_IMAGES.banana;
+
+    }
+
+});
+
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+const revealElements =
+document.querySelectorAll(
+    ".reveal"
+);
+
+
+const observer =
+new IntersectionObserver(
+
+    function(entries, observer){
+
+        entries.forEach(function(entry){
+
+            if(
+                entry.isIntersecting
+            ){
+
+                entry.target
+                .classList
+                .add("visible");
+
+
+                observer.unobserve(
+                    entry.target
+                );
+
+            }
+
+        });
+
+    },
+
+    {
+
+        threshold:.12,
+
+        rootMargin:
+        "0px 0px -40px 0px"
+
+    }
+
+);
+
+
+revealElements.forEach(function(element){
+
+    observer.observe(element);
+
+});
+
+
+
+/* =========================================================
+   SCROLL PROGRESS
+========================================================= */
+
+const progress =
+document.getElementById(
+    "scrollProgress"
+);
+
+
+function updateProgress(){
+
+    const scrollTop =
+    window.scrollY;
+
+
+    const height =
+    document.documentElement.scrollHeight
+    -
+    window.innerHeight;
+
+
+    if(
+        height <= 0
+    ){
+
+        progress.style.width =
+        "0%";
+
+        return;
+
+    }
+
+
+    const percentage =
+    (scrollTop / height) * 100;
+
+
+    progress.style.width =
+    percentage + "%";
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateProgress,
+    {
+        passive:true
+    }
+);
+
+
+updateProgress();
+
+
+
+/* =========================================================
+   RANDOM BUBBLES
+========================================================= */
+
+document
+.querySelectorAll(".bubble")
+.forEach(function(bubble){
+
+    const randomMove =
+    (Math.random()*60)-30;
+
+
+    const randomDelay =
+    Math.random()*4;
+
+
+    bubble.style
+    .setProperty(
+        "--move",
+        randomMove + "px"
+    );
+
+
+    bubble.style.animationDelay =
+    "-" + randomDelay + "s";
+
+});
+
+
+
+/* =========================================================
+   CHARACTER CARD HOVER
+========================================================= */
+
+const characterCards =
+document.querySelectorAll(
+    ".character-card"
+);
+
+
+if(
+    window.matchMedia(
+        "(hover:hover) and (pointer:fine)"
+    ).matches
+){
+
+    characterCards.forEach(function(card){
+
+        card.addEventListener(
+            "mousemove",
+            function(event){
+
+                const rect =
+                card.getBoundingClientRect();
+
+
+                const x =
+                event.clientX -
+                rect.left;
+
+
+                const y =
+                event.clientY -
+                rect.top;
+
+
+                const rotateY =
+                ((x - rect.width / 2) /
+                (rect.width / 2))
+                * 1.5;
+
+
+                const rotateX =
+                ((y - rect.height / 2) /
+                (rect.height / 2))
+                * -1.5;
+
+
+                card.style.transform =
+                `
+                translateY(-7px)
+                rotateX(${rotateX}deg)
+                rotateY(${rotateY}deg)
+                `;
+
+            }
+        );
+
+
+        card.addEventListener(
+            "mouseleave",
+            function(){
+
+                card.style.transform =
+                "";
+
+            }
+        );
+
+    });
+
+}
+
+
+
+/* =========================================================
+   PRODUCT PARALLAX
+========================================================= */
+
+const heroProduct =
+document.querySelector(
+    ".hero-product"
+);
+
+
+let ticking =
+false;
+
+
+function productParallax(){
+
+    if(
+        window.innerWidth <= 768
+    ){
+
+        ticking =
+        false;
+
+        return;
+
+    }
+
+
+    const scroll =
+    window.scrollY;
+
+
+    if(
+        scroll <
+        window.innerHeight
+    ){
+
+        heroProduct.style.marginTop =
+        (scroll * .04) + "px";
+
+    }
+
+
+    ticking =
+    false;
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        if(!ticking){
+
+            window.requestAnimationFrame(
+                productParallax
+            );
+
+            ticking =
+            true;
+
+        }
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+
+/* =========================================================
+   IMAGE ERROR CHECK
+========================================================= */
+
+document
+.querySelectorAll("img")
+.forEach(function(img){
+
+    img.addEventListener(
+        "error",
+        function(){
+
+            console.warn(
+                "Gambar tidak ditemukan:",
+                this.src
+            );
+
+        }
+    );
+
+});
+
+</script>
+
+
+</body>
+
+</html>
