@@ -26,7 +26,7 @@
 
 /* =========================================================
    VICORA BERANDA
-   FULL VERSION
+   FULL VERSION + REWARD 5%
 ========================================================= */
 
 :root{
@@ -124,10 +124,7 @@ a{
 
 
 /* =========================================================
-   =========================================================
    HERO
-   BACKGROUND DARI ASSETS
-   =========================================================
 ========================================================= */
 
 .hero{
@@ -166,8 +163,6 @@ a{
 }
 
 
-/* HERO LIGHT */
-
 .hero::before{
 
     content:"";
@@ -196,8 +191,6 @@ a{
 
 }
 
-
-/* HERO GLASS EFFECT */
 
 .hero::after{
 
@@ -466,8 +459,6 @@ a{
 }
 
 
-/* PRODUCT GLOW */
-
 .product-glow{
 
     position:absolute;
@@ -494,10 +485,6 @@ a{
 
 }
 
-
-/* =========================================================
-   PRODUCT
-========================================================= */
 
 .hero-product{
 
@@ -774,7 +761,7 @@ a{
 
 
 /* =========================================================
-   BANANA DECORATION
+   BANANA
 ========================================================= */
 
 .banana-shape{
@@ -982,8 +969,7 @@ a{
 
 
 /* =========================================================
-   =========================================================
-   BUAT KAMU YANG...
+   BUAT KAMU YANG
 ========================================================= */
 
 .characters-section{
@@ -1013,8 +999,6 @@ a{
 
 }
 
-
-/* DECORATION */
 
 .characters-section::before{
 
@@ -1059,10 +1043,6 @@ a{
 
 }
 
-
-/* =========================================================
-   CHARACTER HEADER
-========================================================= */
 
 .characters-header{
 
@@ -1139,10 +1119,6 @@ a{
 }
 
 
-/* =========================================================
-   CHARACTER BANANA
-========================================================= */
-
 .character-banana{
 
     position:absolute;
@@ -1184,10 +1160,6 @@ a{
 
 }
 
-
-/* =========================================================
-   CHARACTER DOTS
-========================================================= */
 
 .character-dots{
 
@@ -1309,10 +1281,6 @@ a{
 }
 
 
-/* =========================================================
-   CHARACTER INFO
-========================================================= */
-
 .character-info{
 
     position:relative;
@@ -1364,10 +1332,6 @@ a{
 }
 
 
-/* =========================================================
-   CHARACTER NAME
-========================================================= */
-
 .character-name{
 
     display:inline;
@@ -1403,10 +1367,6 @@ a{
 }
 
 
-/* =========================================================
-   DESCRIPTION
-========================================================= */
-
 .character-description{
 
     margin-top:16px;
@@ -1425,8 +1385,7 @@ a{
 
 
 /* =========================================================
-   CHARACTER IMAGE WRAPPER
-   FIX AGAR ARTWORK TIDAK TERPOTONG
+   CHARACTER IMAGE
 ========================================================= */
 
 .character-image-wrapper{
@@ -1451,8 +1410,6 @@ a{
 }
 
 
-/* DECORATIVE CIRCLE */
-
 .character-image-wrapper::before{
 
     content:"";
@@ -1476,12 +1433,6 @@ a{
 
 }
 
-
-/* =========================================================
-   CHARACTER IMAGE
-   PENTING:
-   TIDAK MENGGUNAKAN WIDTH 100% + HEIGHT 100%
-========================================================= */
 
 .character-image{
 
@@ -1512,8 +1463,6 @@ a{
 }
 
 
-/* HOVER */
-
 .character-card:hover
 .character-image{
 
@@ -1523,10 +1472,6 @@ a{
 
 }
 
-
-/* =========================================================
-   SPLASH
-========================================================= */
 
 .character-splash{
 
@@ -1577,42 +1522,6 @@ a{
 
     right:0;
     top:0;
-
-}
-
-
-.character-card:nth-child(1)
-.character-splash{
-
-    top:20px;
-    right:20px;
-
-}
-
-
-.character-card:nth-child(2)
-.character-splash{
-
-    top:20px;
-    right:20px;
-
-}
-
-
-.character-card:nth-child(3)
-.character-splash{
-
-    bottom:20px;
-    left:45%;
-
-}
-
-
-.character-card:nth-child(4)
-.character-splash{
-
-    top:20px;
-    left:47%;
 
 }
 
@@ -2283,6 +2192,542 @@ footer{
 
 
 /* =========================================================
+   =========================================================
+   REWARD POPUP DISKON 5%
+=========================================================
+   Muncul saat user mencapai 95% halaman
+========================================================= */
+
+.reward-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:10000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+    rgba(25,20,14,.55);
+
+    backdrop-filter:
+    blur(12px);
+
+    -webkit-backdrop-filter:
+    blur(12px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:
+    opacity .45s ease,
+    visibility .45s ease;
+
+}
+
+
+.reward-overlay.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+
+}
+
+
+/* =========================================================
+   REWARD POPUP
+========================================================= */
+
+.reward-popup{
+
+    position:relative;
+
+    width:
+    min(470px,100%);
+
+    padding:
+    48px 38px 35px;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    border:
+    2px solid rgba(255,255,255,.9);
+
+    border-radius:35px;
+
+    background:
+
+    radial-gradient(
+        circle at 50% 0%,
+        rgba(255,216,61,.25),
+        transparent 35%
+    ),
+
+    linear-gradient(
+        145deg,
+        #FFFFFF,
+        #FFFDF1
+    );
+
+    box-shadow:
+
+    0 35px 100px
+    rgba(0,0,0,.28);
+
+    transform:
+    translateY(40px)
+    scale(.88);
+
+    transition:
+    transform .65s
+    cubic-bezier(.22,1,.36,1);
+
+}
+
+
+.reward-overlay.active
+.reward-popup{
+
+    transform:
+    translateY(0)
+    scale(1);
+
+}
+
+
+/* =========================================================
+   REWARD CLOSE
+========================================================= */
+
+.reward-close{
+
+    position:absolute;
+
+    top:15px;
+    right:17px;
+
+    width:35px;
+    height:35px;
+
+    display:grid;
+
+    place-items:center;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:
+    rgba(0,0,0,.06);
+
+    color:#555;
+
+    font-size:22px;
+
+    line-height:1;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+
+}
+
+
+.reward-close:hover{
+
+    background:
+    var(--yellow);
+
+    color:
+    var(--brown-dark);
+
+    transform:
+    rotate(90deg);
+
+}
+
+
+/* =========================================================
+   REWARD ICON
+========================================================= */
+
+.reward-icon{
+
+    width:100px;
+    height:100px;
+
+    margin:
+    0 auto 20px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:50%;
+
+    background:
+    var(--yellow);
+
+    border:
+    7px solid
+    rgba(255,216,61,.25);
+
+    box-shadow:
+
+    0 15px 40px
+    rgba(244,188,0,.3);
+
+    animation:
+    rewardPulse
+    2.2s
+    ease-in-out
+    infinite;
+
+}
+
+
+.reward-icon span{
+
+    color:
+    var(--green-dark);
+
+    font-size:29px;
+
+    font-weight:900;
+
+}
+
+
+@keyframes rewardPulse{
+
+    0%,
+    100%{
+
+        transform:
+        scale(1);
+
+    }
+
+    50%{
+
+        transform:
+        scale(1.07);
+
+    }
+
+}
+
+
+/* =========================================================
+   REWARD TEXT
+========================================================= */
+
+.reward-small-title{
+
+    margin-bottom:8px;
+
+    color:
+    var(--green-dark);
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+}
+
+
+.reward-popup h2{
+
+    margin:0;
+
+    color:
+    var(--brown-dark);
+
+    font-size:
+    clamp(34px,7vw,48px);
+
+    line-height:1;
+
+    letter-spacing:-2px;
+
+    font-weight:900;
+
+}
+
+
+.reward-popup h2 span{
+
+    display:block;
+
+    color:
+    var(--green);
+
+}
+
+
+.reward-description{
+
+    max-width:390px;
+
+    margin:
+    18px auto 22px;
+
+    color:
+    #666;
+
+    font-size:13px;
+
+    line-height:1.8;
+
+}
+
+
+.reward-description strong{
+
+    color:
+    var(--green-dark);
+
+    font-weight:900;
+
+}
+
+
+/* =========================================================
+   PROMO CODE
+========================================================= */
+
+.reward-code-box{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:5px;
+
+    width:100%;
+
+    padding:
+    15px;
+
+    margin-bottom:20px;
+
+    border:
+    2px dashed
+    rgba(71,115,49,.3);
+
+    border-radius:17px;
+
+    background:
+    #F2F8EC;
+
+}
+
+
+.reward-code-box span{
+
+    color:
+    #79916A;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
+
+}
+
+
+.reward-code-box strong{
+
+    color:
+    var(--green-dark);
+
+    font-size:24px;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+}
+
+
+/* =========================================================
+   REWARD BUTTON
+========================================================= */
+
+.reward-button{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:13px;
+
+    width:100%;
+
+    min-height:57px;
+
+    padding:
+    0 20px;
+
+    border-radius:100px;
+
+    background:
+    var(--yellow);
+
+    color:
+    var(--brown-dark);
+
+    font-size:13px;
+
+    font-weight:900;
+
+    box-shadow:
+    0 15px 35px
+    rgba(244,188,0,.25);
+
+    transition:
+    transform .35s var(--ease),
+    box-shadow .35s var(--ease);
+
+}
+
+
+.reward-button span{
+
+    display:grid;
+
+    place-items:center;
+
+    width:25px;
+    height:25px;
+
+    border-radius:50%;
+
+    background:
+    rgba(0,0,0,.08);
+
+    transition:.3s var(--ease);
+
+}
+
+
+.reward-button:hover{
+
+    transform:
+    translateY(-3px);
+
+    box-shadow:
+    0 22px 45px
+    rgba(244,188,0,.35);
+
+}
+
+
+.reward-button:hover span{
+
+    transform:
+    translateX(4px);
+
+}
+
+
+/* =========================================================
+   REWARD NOTE
+========================================================= */
+
+.reward-note{
+
+    margin-top:15px;
+
+    color:#999;
+
+    font-size:9px;
+
+}
+
+
+/* =========================================================
+   REWARD BUBBLES
+========================================================= */
+
+.reward-bubble{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+}
+
+
+.rb-1{
+
+    width:80px;
+    height:80px;
+
+    left:-35px;
+    top:100px;
+
+    background:
+    rgba(255,216,61,.22);
+
+}
+
+
+.rb-2{
+
+    width:45px;
+    height:45px;
+
+    right:25px;
+    top:70px;
+
+    background:
+    rgba(111,168,74,.12);
+
+}
+
+
+.rb-3{
+
+    width:25px;
+    height:25px;
+
+    right:65px;
+    bottom:80px;
+
+    background:
+    rgba(255,216,61,.18);
+
+}
+
+
+/* =========================================================
    TABLET
 ========================================================= */
 
@@ -2415,9 +2860,7 @@ footer{
     }
 
 
-    /* ==========================================
-       CHARACTER SECTION
-    ========================================== */
+    /* CHARACTER */
 
     .characters-section{
 
@@ -2620,6 +3063,54 @@ footer{
         text-align:center;
 
         gap:10px;
+
+    }
+
+
+    /* REWARD MOBILE */
+
+    .reward-popup{
+
+        padding:
+        40px 23px 27px;
+
+        border-radius:28px;
+
+    }
+
+
+    .reward-icon{
+
+        width:82px;
+        height:82px;
+
+    }
+
+
+    .reward-icon span{
+
+        font-size:25px;
+
+    }
+
+
+    .reward-popup h2{
+
+        font-size:36px;
+
+    }
+
+
+    .reward-description{
+
+        font-size:12px;
+
+    }
+
+
+    .reward-code-box strong{
+
+        font-size:21px;
 
     }
 
@@ -2861,7 +3352,6 @@ footer{
     </span>
 
 
-
     <!-- WATER DROPS -->
 
     <span
@@ -2908,8 +3398,6 @@ footer{
     <div class="hero-container">
 
 
-        <!-- HERO TEXT -->
-
         <div class="hero-content">
 
 
@@ -2945,7 +3433,7 @@ footer{
 
 
                 <a
-                    href="https://www.google.com/url?q=https%3A%2F%2Fwa.me%2F6285714858798&sa=D&sntz=1&usg=AOvVaw1CQUinHDw63MowMRKoWykU"
+                    href="https://wa.me/6285714858798?text=Halo%20VICORA%2C%20saya%20ingin%20memesan%20produk%20VICORA."
                     target="_blank"
                     rel="noopener noreferrer"
                     class="order-button">
@@ -2965,8 +3453,6 @@ footer{
         </div>
 
 
-
-        <!-- HERO PRODUCT -->
 
         <div class="hero-visual">
 
@@ -3017,7 +3503,7 @@ footer{
 
 
 <!-- =========================================================
-     BUAT KAMU YANG...
+     BUAT KAMU YANG
 ========================================================= -->
 
 <section
@@ -3028,7 +3514,6 @@ footer{
     <div class="character-banana one"></div>
 
     <div class="character-banana two"></div>
-
 
 
     <div class="character-dots dots-left">
@@ -3048,7 +3533,6 @@ footer{
     </div>
 
 
-
     <div class="character-dots dots-right">
 
         <span></span>
@@ -3066,10 +3550,14 @@ footer{
     </div>
 
 
-
     <div class="characters-header">
 
 
+        <div class="character-label reveal">
+
+            VICORA IS
+
+        </div>
 
 
         <h2 class="characters-title reveal">
@@ -3087,15 +3575,12 @@ footer{
     <div class="character-grid">
 
 
-        <!-- =================================================
-             CHARACTER 01
-        ================================================== -->
+        <!-- CHARACTER 01 -->
 
         <article class="character-card reveal">
 
 
             <div class="character-info">
-
 
                 <div class="character-number">
                     01
@@ -3113,15 +3598,12 @@ footer{
 
                 </p>
 
-
             </div>
 
 
             <div class="character-image-wrapper">
 
-
                 <span class="character-splash"></span>
-
 
                 <img
                     class="character-image"
@@ -3130,7 +3612,6 @@ footer{
                     loading="lazy"
                 >
 
-
             </div>
 
 
@@ -3138,15 +3619,12 @@ footer{
 
 
 
-        <!-- =================================================
-             CHARACTER 02
-        ================================================== -->
+        <!-- CHARACTER 02 -->
 
         <article class="character-card reveal">
 
 
             <div class="character-info">
-
 
                 <div class="character-number">
                     02
@@ -3164,15 +3642,12 @@ footer{
 
                 </p>
 
-
             </div>
 
 
             <div class="character-image-wrapper">
 
-
                 <span class="character-splash"></span>
-
 
                 <img
                     class="character-image"
@@ -3181,7 +3656,6 @@ footer{
                     loading="lazy"
                 >
 
-
             </div>
 
 
@@ -3189,15 +3663,12 @@ footer{
 
 
 
-        <!-- =================================================
-             CHARACTER 03
-        ================================================== -->
+        <!-- CHARACTER 03 -->
 
         <article class="character-card reveal">
 
 
             <div class="character-info">
-
 
                 <div class="character-number">
                     03
@@ -3215,15 +3686,12 @@ footer{
 
                 </p>
 
-
             </div>
 
 
             <div class="character-image-wrapper">
 
-
                 <span class="character-splash"></span>
-
 
                 <img
                     class="character-image"
@@ -3232,7 +3700,6 @@ footer{
                     loading="lazy"
                 >
 
-
             </div>
 
 
@@ -3240,15 +3707,12 @@ footer{
 
 
 
-        <!-- =================================================
-             CHARACTER 04
-        ================================================== -->
+        <!-- CHARACTER 04 -->
 
         <article class="character-card reveal">
 
 
             <div class="character-info">
-
 
                 <div class="character-number">
                     04
@@ -3266,15 +3730,12 @@ footer{
 
                 </p>
 
-
             </div>
 
 
             <div class="character-image-wrapper">
 
-
                 <span class="character-splash"></span>
-
 
                 <img
                     class="character-image"
@@ -3282,7 +3743,6 @@ footer{
                     alt="The Banana Lover"
                     loading="lazy"
                 >
-
 
             </div>
 
@@ -3328,6 +3788,12 @@ footer{
 
 
         <div>
+
+
+            <div class="section-label reveal">
+                ABOUT VICORA
+            </div>
+
 
             <h2 class="section-title reveal">
 
@@ -3623,6 +4089,10 @@ footer{
         <div>
 
 
+            <div class="section-label reveal">
+                OUR PROCESS
+            </div>
+
 
             <h2 class="section-title reveal">
 
@@ -3729,7 +4199,7 @@ footer{
 
 
         <a
-            href="https://www.google.com/url?q=https%3A%2F%2Fwa.me%2F6285714858798&sa=D&sntz=1&usg=AOvVaw1CQUinHDw63MowMRKoWykU"
+            href="https://wa.me/6285714858798?text=Halo%20VICORA%2C%20saya%20ingin%20memesan%20produk%20VICORA."
             target="_blank"
             rel="noopener noreferrer"
             class="order-button">
@@ -3777,106 +4247,140 @@ footer{
 
 
 
+<!-- =========================================================
+     REWARD POPUP
+========================================================= -->
+
+<div
+    class="reward-overlay"
+    id="rewardOverlay"
+    aria-hidden="true"
+>
+
+
+    <div
+        class="reward-popup"
+        id="rewardPopup"
+    >
+
+
+        <button
+            class="reward-close"
+            id="rewardClose"
+            aria-label="Tutup reward"
+        >
+            ×
+        </button>
+
+
+        <!-- DECORATION -->
+
+        <span class="reward-bubble rb-1"></span>
+
+        <span class="reward-bubble rb-2"></span>
+
+        <span class="reward-bubble rb-3"></span>
+
+
+        <!-- ICON -->
+
+        <div class="reward-icon">
+
+            <span>
+                5%
+            </span>
+
+        </div>
+
+
+        <!-- TITLE -->
+
+        <div class="reward-small-title">
+
+            CONGRATS! 🎉
+
+        </div>
+
+
+        <h2>
+
+            Kamu Dapat
+
+            <span>
+                Reward!
+            </span>
+
+        </h2>
+
+
+        <!-- DESCRIPTION -->
+
+        <p class="reward-description">
+
+            Karena kamu sudah sampai di akhir perjalanan VICORA,
+            kamu berhak mendapatkan
+
+            <strong>
+                DISKON 5%
+            </strong>
+
+            untuk pembelian pertamamu.
+
+        </p>
+
+
+        <!-- PROMO -->
+
+        <div class="reward-code-box">
+
+            <span>
+                KODE PROMO
+            </span>
+
+
+            <strong>
+                VICORA5
+            </strong>
+
+        </div>
+
+
+        <!-- CLAIM -->
+
+        <a
+            href="https://wa.me/6285714858798?text=Halo%20VICORA%2C%20saya%20ingin%20menggunakan%20kode%20promo%20VICORA5%20untuk%20mendapatkan%20diskon%205%25%20pembelian%20pertama."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="reward-button"
+        >
+
+            Klaim Diskon 5%
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+
+        <p class="reward-note">
+
+            *Khusus untuk pembelian pertama.
+
+        </p>
+
+
+    </div>
+
+</div>
+
+
+
 <script>
 
 /* =========================================================
    VICORA JAVASCRIPT
 ========================================================= */
-
-
-/* =========================================================
-   PRODUCT IMAGE
-========================================================= */
-
-const PRODUCT_IMAGE =
-"assets/produk-vicora.png";
-
-
-document
-.querySelectorAll(
-    ".hero-product, .story-product, .process-product"
-)
-.forEach(function(img){
-
-    img.src =
-    PRODUCT_IMAGE;
-
-});
-
-
-
-/* =========================================================
-   CHARACTER IMAGES
-========================================================= */
-
-const CHARACTER_IMAGES = {
-
-    busy:
-    "assets/character-busy-one.png",
-
-    minimalist:
-    "assets/character-minimalist.png",
-
-    active:
-    "assets/character-active-one.png",
-
-    banana:
-    "assets/character-banana-lover.png"
-
-};
-
-
-document
-.querySelectorAll(
-    ".character-image"
-)
-.forEach(function(img){
-
-    const alt =
-    img.getAttribute("alt");
-
-
-    if(
-        alt === "The Busy One"
-    ){
-
-        img.src =
-        CHARACTER_IMAGES.busy;
-
-    }
-
-
-    if(
-        alt === "The Minimalist"
-    ){
-
-        img.src =
-        CHARACTER_IMAGES.minimalist;
-
-    }
-
-
-    if(
-        alt === "The Active One"
-    ){
-
-        img.src =
-        CHARACTER_IMAGES.active;
-
-    }
-
-
-    if(
-        alt === "The Banana Lover"
-    ){
-
-        img.src =
-        CHARACTER_IMAGES.banana;
-
-    }
-
-});
-
 
 
 /* =========================================================
@@ -3916,12 +4420,10 @@ new IntersectionObserver(
     },
 
     {
-
         threshold:.12,
 
         rootMargin:
         "0px 0px -40px 0px"
-
     }
 
 );
@@ -3993,7 +4495,7 @@ updateProgress();
 
 
 /* =========================================================
-   RANDOM BUBBLES
+   BUBBLE RANDOMIZATION
 ========================================================= */
 
 document
@@ -4170,6 +4672,212 @@ window.addEventListener(
 
 
 /* =========================================================
+   REWARD SYSTEM
+   DISKON 5% PEMBELIAN PERTAMA
+========================================================= */
+
+const rewardOverlay =
+document.getElementById(
+    "rewardOverlay"
+);
+
+
+const rewardClose =
+document.getElementById(
+    "rewardClose"
+);
+
+
+/*
+   Status reward disimpan di browser.
+
+   Jika sudah pernah muncul,
+   reward tidak akan muncul lagi.
+*/
+
+let rewardShown =
+localStorage.getItem(
+    "vicoraRewardShown"
+);
+
+
+let rewardScrollTriggered =
+false;
+
+
+/* =========================================================
+   SHOW REWARD
+========================================================= */
+
+function showReward(){
+
+    if(
+        rewardShown === "true"
+    ){
+
+        return;
+
+    }
+
+
+    rewardOverlay.classList.add(
+        "active"
+    );
+
+
+    rewardOverlay.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+
+    localStorage.setItem(
+        "vicoraRewardShown",
+        "true"
+    );
+
+
+    rewardShown =
+    "true";
+
+}
+
+
+
+/* =========================================================
+   CLOSE REWARD
+========================================================= */
+
+function closeReward(){
+
+    rewardOverlay.classList.remove(
+        "active"
+    );
+
+
+    rewardOverlay.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+}
+
+
+rewardClose.addEventListener(
+    "click",
+    closeReward
+);
+
+
+
+/* =========================================================
+   CLICK OUTSIDE
+========================================================= */
+
+rewardOverlay.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target ===
+            rewardOverlay
+        ){
+
+            closeReward();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape"
+        ){
+
+            closeReward();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   DETECT BOTTOM OF PAGE
+========================================================= */
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        if(
+            rewardScrollTriggered
+        ){
+
+            return;
+
+        }
+
+
+        const scrollTop =
+        window.scrollY;
+
+
+        const windowHeight =
+        window.innerHeight;
+
+
+        const documentHeight =
+        document.documentElement.scrollHeight;
+
+
+        const scrollPercentage =
+        (
+            scrollTop +
+            windowHeight
+        )
+        /
+        documentHeight;
+
+
+        /*
+           Reward muncul saat
+           user sudah mencapai 95%
+           dari keseluruhan halaman.
+        */
+
+        if(
+            scrollPercentage >= .95
+        ){
+
+            rewardScrollTriggered =
+            true;
+
+
+            showReward();
+
+        }
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+
+/* =========================================================
    IMAGE ERROR CHECK
 ========================================================= */
 
@@ -4190,6 +4898,24 @@ document
     );
 
 });
+
+
+
+/* =========================================================
+   DEBUG / TEST REWARD
+========================================================= */
+
+/*
+   Untuk TESTING SAJA:
+
+   Buka Console browser lalu jalankan:
+
+   localStorage.removeItem("vicoraRewardShown");
+
+   Kemudian refresh halaman dan
+   scroll sampai bagian paling bawah.
+*/
+
 
 </script>
 
