@@ -4036,7 +4036,7 @@ footer{
     ================================================== -->
 
     <a
-        href="/tentang-kami/"
+        href="#tentang"
         aria-label="Tentang VICORA"
     >
 
@@ -4056,7 +4056,7 @@ footer{
     ================================================== -->
 
     <a
-        href="/alamat/"
+        href="#alamat"
         aria-label="Alamat VICORA"
     >
 
@@ -4101,7 +4101,7 @@ footer{
     ================================================== -->
 
     <a
-        href="/variasi/"
+        href="#variasi"
         class="product-link"
         data-product="500ml"
         aria-label="VICORA 500 ML"
@@ -4123,7 +4123,7 @@ footer{
     ================================================== -->
 
     <a
-        href="/variasi/"
+        href="#variasi"
         class="product-link"
         data-product="750ml"
         aria-label="VICORA 750 ML"
@@ -4145,7 +4145,7 @@ footer{
     ================================================== -->
 
     <a
-        href="/variasi/"
+        href="#variasi"
         class="product-link"
         data-product="10gr"
         aria-label="VICORA 10 GR"
@@ -5165,6 +5165,12 @@ footer{
 <!-- =========================================================
      FOOTER
 ========================================================= -->
+
+
+<!-- =========================================================
+   ALAMAT ANCHOR
+========================================================= -->
+<div id="alamat" style="scroll-margin-top:30px;"></div>
 
 <footer>
 
@@ -6210,5 +6216,25 @@ document
 
 
 </script>
+<div id="variasi" style="scroll-margin-top:30px;"></div>\n
+<script>
+/* ===== INTERNAL INTERACTIVE-SCENE NAVIGATION ===== */
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            const id = this.getAttribute("href");
+            const target = document.querySelector(id);
+            if (!target) return;
+
+            event.preventDefault();
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        });
+    });
+});
+</script>
+
 </body>
 </html>
