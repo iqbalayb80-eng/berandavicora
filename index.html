@@ -4036,7 +4036,7 @@ footer{
     ================================================== -->
 
     <a
-        href="#tentang"
+        href="https://www.vicora.biz.id/tentang-kami"
         aria-label="Tentang VICORA"
     >
 
@@ -5115,6 +5115,8 @@ footer{
 
 
 
+<div id="variasi" style="scroll-margin-top:20px;"></div>
+
 <!-- =========================================================
      FINAL CTA
 ========================================================= -->
@@ -5163,14 +5165,32 @@ footer{
 
 
 <!-- =========================================================
-     FOOTER
+     ALAMAT / KONTAK
 ========================================================= -->
-
+<section class="section" id="alamat" style="background:#F8F7F2; scroll-margin-top:20px;">
+    <div class="container">
+        <div class="section-label">ALAMAT & KONTAK</div>
+        <h2 class="section-title">Temukan <span class="highlight">VICORA</span></h2>
+        <p style="max-width:650px; margin-top:22px; color:var(--text-soft); line-height:1.9;">
+            Untuk informasi alamat, lokasi, ketersediaan produk, dan pemesanan VICORA,
+            silakan hubungi kami melalui WhatsApp.
+        </p>
+        <a
+            href="https://wa.me/6285714858798?text=Halo%20VICORA%2C%20saya%20ingin%20menanyakan%20alamat%20dan%20lokasi%20VICORA."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="order-button"
+            style="margin-top:28px;"
+        >
+            Hubungi VICORA
+            <span class="arrow">→</span>
+        </a>
+    </div>
+</section>
 
 <!-- =========================================================
-   ALAMAT ANCHOR
+     FOOTER
 ========================================================= -->
-<div id="alamat" style="scroll-margin-top:30px;"></div>
 
 <footer>
 
@@ -6216,25 +6236,5 @@ document
 
 
 </script>
-<div id="variasi" style="scroll-margin-top:30px;"></div>\n
-<script>
-/* ===== INTERNAL INTERACTIVE-SCENE NAVIGATION ===== */
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-        link.addEventListener("click", function (event) {
-            const id = this.getAttribute("href");
-            const target = document.querySelector(id);
-            if (!target) return;
-
-            event.preventDefault();
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        });
-    });
-});
-</script>
-
 </body>
 </html>
