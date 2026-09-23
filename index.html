@@ -4004,6 +4004,67 @@ footer{
 }
 
 
+
+/* =========================================================
+   VICORA SCENE BRAND
+   Judul + subjudul di kiri atas dekat shower
+========================================================= */
+
+.scene-brand{
+    position:absolute;
+    left:clamp(115px, 10vw, 175px);
+    top:clamp(42px, 7.5vh, 78px);
+    z-index:120;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    pointer-events:none;
+    user-select:none;
+    line-height:1;
+}
+
+.scene-brand-title{
+    margin:0;
+    font-family:"Poppins", sans-serif;
+    font-size:clamp(24px, 2.8vw, 42px);
+    font-weight:900;
+    letter-spacing:-1.8px;
+    color:#477331;
+    text-shadow:0 2px 12px rgba(255,255,255,.45);
+}
+
+.scene-brand-subtitle{
+    margin-top:6px;
+    font-family:"Poppins", sans-serif;
+    font-size:clamp(8px, .72vw, 11px);
+    font-weight:800;
+    letter-spacing:2.2px;
+    color:#4A3324;
+    text-transform:uppercase;
+    white-space:nowrap;
+    text-shadow:0 1px 8px rgba(255,255,255,.45);
+}
+
+/* Responsive */
+@media (max-width:768px){
+    .scene-brand{
+        left:clamp(72px, 18vw, 125px);
+        top:clamp(30px, 6vh, 55px);
+    }
+
+    .scene-brand-title{
+        font-size:clamp(21px, 6vw, 31px);
+        letter-spacing:-1px;
+    }
+
+    .scene-brand-subtitle{
+        margin-top:4px;
+        font-size:clamp(7px, 1.8vw, 9px);
+        letter-spacing:1.4px;
+    }
+}
+
+
 </style>
 </head>
 <body>
@@ -4017,6 +4078,16 @@ footer{
     id="vicoraScene"
 >
 
+
+    <!-- =================================================
+         SCENE BRAND
+         VICORA — SOAP & SHAMPOO
+    ================================================== -->
+
+    <div class="scene-brand" aria-label="VICORA Soap & Shampoo">
+        <div class="scene-brand-title">VICORA</div>
+        <div class="scene-brand-subtitle">SOAP &amp; SHAMPOO</div>
+    </div>
 
     <!-- =================================================
          BACKGROUND
