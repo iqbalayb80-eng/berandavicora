@@ -2863,44 +2863,168 @@ a{
 
 
 /* =========================================================
-   FOOTER
+   FOOTER — VICORA
 ========================================================= */
 
-footer{
-
-    padding:
-    30px 6vw;
-
-    background:
-    #211811;
-
-    color:
-    rgba(255,255,255,.55);
-
+.footer {
+    background: #193d24;
+    color: white;
+    padding: 60px 8% 20px;
+    font-family: Arial, sans-serif;
 }
 
-
-.footer{
-
-    width:min(1180px,100%);
-
-    margin:auto;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+    gap: 50px;
 }
 
+.footer-brand h2 {
+    margin: 0 0 12px;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #ffd84d;
+}
 
-.footer strong{
+.footer-brand p {
+    margin: 0 0 25px;
+    line-height: 1.6;
+    font-size: 15px;
+    color: #eeeeee;
+}
 
-    color:white;
+.footer-social {
+    display: flex;
+    gap: 10px;
+}
 
-    font-size:19px;
+.footer-social a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
 
+.footer-social a:hover {
+    background: #ffd84d;
+    color: #193d24;
+    border-color: #ffd84d;
+    transform: translateY(-3px);
+}
+
+.footer-column h3 {
+    margin: 0 0 20px;
+    font-size: 18px;
+    color: #ffd84d;
+}
+
+.footer-column > a {
+    display: block;
+    margin-bottom: 12px;
+    color: #eeeeee;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-column > a:hover {
+    color: #ffd84d;
+    padding-left: 5px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    color: #eeeeee;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.contact-item i {
+    width: 18px;
+    margin-top: 4px;
+    color: #ffd84d;
+}
+
+.social-link {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+}
+
+.social-link i {
+    width: 20px;
+    color: #ffd84d;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 45px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 13px;
+    color: #cccccc;
+}
+
+.footer-policy {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-policy a {
+    color: #cccccc;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.footer-policy a:hover {
+    color: #ffd84d;
+}
+
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer {
+        padding: 45px 25px 20px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .footer-social {
+        justify-content: flex-start;
+    }
 }
 
 
@@ -3797,17 +3921,6 @@ footer{
     }
 
 
-    .footer{
-
-        flex-direction:column;
-
-        text-align:center;
-
-        gap:10px;
-
-    }
-
-
     /* REWARD MOBILE */
 
     .reward-popup{
@@ -4066,6 +4179,8 @@ footer{
 
 
 </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
 <body>
 
@@ -5263,27 +5378,100 @@ footer{
      FOOTER
 ========================================================= -->
 
-<footer>
+<footer class="footer">
 
+    <div class="footer-container">
 
-    <div class="footer">
+        <!-- BRAND -->
+        <div class="footer-brand">
+            <h2>VICORA</h2>
+            <p>
+                Banana Vibes,<br>
+                Cleaner Days
+            </p>
 
+            <div class="footer-social">
+                <a href="https://www.instagram.com/agtecha24/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
 
-        <strong>
-            VICORA
-        </strong>
+                <a href="https://youtube.com/@vicora2in1?si=zojMceXvMZgz1WRm" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
 
+                <a href="https://wa.me/6285714858798" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
 
-        <span>
-            Banana Vibes, Cleaner Days.
-        </span>
+        <!-- NAVIGATION -->
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <a href="https://www.vicora.biz.id/beranda">Beranda</a>
+            <a href="https://www.vicora.biz.id/tentang-kami">Tentang Kami</a>
+            <a href="https://www.vicora.biz.id/variasi">Product</a>
+            <a href="https://www.vicora.biz.id/fungsi">Benefit</a>
+        </div>
 
+        <!-- CONTACT -->
+        <div class="footer-column">
+            <h3>Contact Us</h3>
+
+            <div class="contact-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>
+                    Krajan Timur, Sumbersari,<br>
+                    Kec. Sumbersari,<br>
+                    Kabupaten Jember,<br>
+                    Jawa Timur 68121
+                </span>
+            </div>
+
+            <div class="contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <span>vicora2in1@gmail.com</span>
+            </div>
+
+            <div class="contact-item">
+                <i class="fa-solid fa-phone"></i>
+                <span>+62 857-1485-8798</span>
+            </div>
+        </div>
+
+        <!-- SOCIAL MEDIA -->
+        <div class="footer-column">
+            <h3>Social Media</h3>
+
+            <a href="https://www.instagram.com/agtecha24/" target="_blank" rel="noopener noreferrer" class="social-link">
+                <i class="fa-brands fa-instagram"></i>
+                Instagram
+            </a>
+
+            <a href="https://youtube.com/@vicora2in1?si=zojMceXvMZgz1WRm" target="_blank" rel="noopener noreferrer" class="social-link">
+                <i class="fa-brands fa-youtube"></i>
+                YouTube
+            </a>
+
+            <a href="https://wa.me/6285714858798" target="_blank" rel="noopener noreferrer" class="social-link">
+                <i class="fa-brands fa-whatsapp"></i>
+                WhatsApp
+            </a>
+        </div>
 
     </div>
 
+    <!-- COPYRIGHT -->
+    <div class="footer-bottom">
+        <p>© 2026 Vicora. All Rights Reserved.</p>
+
+        <div class="footer-policy">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms &amp; Conditions</a>
+        </div>
+    </div>
 
 </footer>
-
 
 
 <!-- =========================================================
